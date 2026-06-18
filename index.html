@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>姚涵非 | Hanfei Yao — 个人主页</title>
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#fbfbfa; --card:#ffffff; --ink:#1c1d21; --muted:#5f636b;
+    --line:#e7e8ec; --accent:#234a8c; --accent-soft:#eef2f9;
+    --tag:#f1f3f6; --shadow:0 1px 3px rgba(20,22,30,.06),0 8px 28px rgba(20,22,30,.05);
+    --maxw:940px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.7; font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(251,251,250,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px}
+  .nav-name{font-weight:700;font-size:17px;letter-spacing:.2px}
+  .nav-links{margin-left:auto;display:flex;gap:20px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:14.5px;font-weight:500}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .lang-btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 13px;border-radius:20px;font-size:13.5px;font-weight:600;cursor:pointer;transition:.15s}
+  .lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+  main{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  .hero{padding:60px 0 38px;display:flex;gap:38px;align-items:center;flex-wrap:wrap}
+  .hero-photo{width:142px;height:142px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,#2c4a7c,#4a73b5);display:flex;align-items:center;justify-content:center;color:#fff;font-size:50px;font-weight:600;box-shadow:var(--shadow);overflow:hidden}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-text{flex:1;min-width:280px}
+  .hero-text h1{font-size:33px;line-height:1.2;letter-spacing:-.5px;margin-bottom:6px}
+  .hero-role{font-size:16.5px;color:var(--accent);font-weight:600;margin-bottom:13px}
+  .hero-text p.tagline{color:var(--muted);font-size:15.5px;max-width:580px}
+  .hero-meta{margin-top:15px;display:flex;flex-wrap:wrap;gap:9px}
+  .pill{background:var(--tag);border:1px solid var(--line);padding:5px 12px;border-radius:18px;font-size:12.5px;color:var(--muted)}
+  .contact-row{margin-top:17px;display:flex;flex-wrap:wrap;gap:14px;font-size:14px}
+  .contact-row a,.contact-row span{color:var(--muted)}
+  .contact-row a:hover{color:var(--accent)}
+
+  section{padding:32px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+  .sec-head h2{font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}
+  .sec-head .sub{color:var(--muted);font-size:13.5px}
+
+  .lead{font-size:16.5px;color:var(--ink);max-width:700px}
+  .lead .hl{color:var(--accent);font-weight:600}
+
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-top:22px}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center;box-shadow:var(--shadow)}
+  .metric .big{font-size:28px;font-weight:800;color:var(--accent);line-height:1}
+  .metric .lab{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+  /* education / two-col rows */
+  .row{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .row .when{flex-shrink:0;width:150px;font-size:13.5px;color:var(--muted);font-weight:600}
+  .row .body h3{font-size:16px;margin-bottom:3px}
+  .row .body .deg{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:4px}
+  .row .body p{font-size:14px;color:var(--muted)}
+
+  /* research timeline */
+  .proj{position:relative;padding:0 0 28px 26px;border-left:2px solid var(--line)}
+  .proj:last-child{padding-bottom:0}
+  .proj::before{content:"";position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+  .proj .when{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:4px}
+  .proj h3{font-size:16.5px;margin-bottom:8px}
+  .proj ul{list-style:none;margin:0}
+  .proj ul li{font-size:14.5px;color:var(--muted);padding-left:16px;position:relative;margin-bottom:6px}
+  .proj ul li::before{content:"–";position:absolute;left:0;color:var(--accent)}
+  .badges{margin-top:11px;display:flex;flex-wrap:wrap;gap:7px}
+  .badge{font-size:12px;padding:3px 9px;border-radius:6px;background:var(--tag);color:var(--muted);border:1px solid var(--line)}
+  .badge.first{background:#eaf3ec;color:#2e6b41;border-color:#cfe6d6}
+  .badge.core{background:#fff3e6;color:#9a5a16;border-color:#f3dcc0}
+  .badge.git{background:#eef0f4;color:#24292f;border-color:#d8dbe0}
+  .badge a{color:inherit}
+
+  .honor-list{display:flex;flex-wrap:wrap;gap:9px}
+  .honor-list span{background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:9px;font-size:14px;box-shadow:var(--shadow)}
+
+  .skill-group{margin-bottom:16px}
+  .skill-group h3{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:9px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tags span{background:var(--card);border:1px solid var(--line);padding:6px 13px;border-radius:8px;font-size:13.5px}
+
+  .work-list{list-style:none}
+  .work-list li{display:flex;gap:18px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  .work-list li:last-child{border-bottom:none}
+  .work-list .when{flex-shrink:0;width:150px;color:var(--muted);font-weight:600;font-size:13.5px}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 48px;text-align:center;color:var(--muted);font-size:13.5px}
+
+  [data-en]{display:none}
+  html[lang="en"] [data-zh]{display:none}
+  html[lang="en"] [data-en]{display:initial}
+
+  @media(max-width:620px){
+    .hero{padding:38px 0 24px}
+    .hero-text h1{font-size:26px}
+    .nav-links{gap:13px}
+    .nav-links a:not(.lang-btn){display:none}
+    .row,.work-list li{flex-direction:column;gap:4px}
+    .row .when,.work-list .when{width:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <span class="nav-name">姚涵非 <span style="color:var(--muted);font-weight:500">· Hanfei Yao</span></span>
+    <nav class="nav-links">
+      <a href="#about"><span data-zh>简介</span><span data-en>About</span></a>
+      <a href="#education"><span data-zh>教育</span><span data-en>Education</span></a>
+      <a href="#research"><span data-zh>科研</span><span data-en>Research</span></a>
+      <a href="#skills"><span data-zh>技能</span><span data-en>Skills</span></a>
+      <button class="lang-btn" id="langToggle">EN</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="border-top:none">
+    <div class="hero-photo" id="photo">YH</div>
+    <div class="hero-text">
+      <h1><span data-zh>姚涵非</span><span data-en>Hanfei Yao</span></h1>
+      <div class="hero-role">
+        <span data-zh>智能制造 · 工艺优化算法 · 质量预测 — 研发岗求职</span>
+        <span data-en>Intelligent Manufacturing · Process Optimization · Quality Prediction — seeking R&D roles</span>
+      </div>
+      <p class="tagline">
+        <span data-zh>浙江大学机械工程硕士在读（保研），依托流体动力基础件与机电系统全国重点实验室。专注于把<b>多目标优化、多模态时序建模与大模型</b>落地为可交付的工业算法，已在真实注塑产线完成验证。</span>
+        <span data-en>Master's student (recommended admission) in Mechanical Engineering at Zhejiang University, affiliated with the State Key Laboratory of Fluid Power and Mechatronic Systems. I turn <b>multi-objective optimization, multimodal time-series modeling and LLMs</b> into deliverable industrial algorithms, validated on real injection-molding lines.</span>
+      </p>
+      <div class="hero-meta">
+        <span class="pill"><span data-zh>3 段科研经历 · 一作 SCI 2 篇</span><span data-en>3 research projects · 2 first-author SCI</span></span>
+        <span class="pill"><span data-zh>中文核心 1 篇（学生排一）</span><span data-en>1 CSCD-core paper (first student author)</span></span>
+        <span class="pill"><span data-zh>国家发明专利 2 项</span><span data-en>2 national invention patents</span></span>
+        <span class="pill"><span data-zh>奖学金/荣誉 十余项</span><span data-en>10+ awards</span></span>
+      </div>
+      <div class="contact-row">
+        <a href="mailto:22425022@zju.edu.cn">✉ 22425022@zju.edu.cn</a>
+        <a href="tel:+8617300987826">📞 +86 173 0098 7826</a>
+        <a href="https://github.com/JamaicaBoy" target="_blank" rel="noopener">💻 github.com/JamaicaBoy</a>
+        <span>📍 <span data-zh>杭州 · 浙江大学</span><span data-en>Hangzhou · Zhejiang University</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="sec-head"><h2><span data-zh>关于我</span><span data-en>About</span></h2></div>
+    <p class="lead">
+      <span data-zh>我的研究主线是回答高端制造中的一个共性难题：<span class="hl">如何在实验成本高、参数耦合强、多质量指标冲突的条件下，又快又稳地优化工艺并提前预测质量</span>。在注射成形场景下，我提出了少样本多目标优化方法（7–9 次迭代稳定收敛），构建了仅凭参数即可在成型前预测质量的多模态模型（RMSE 最多降低 36.3%），并探索了知识库增强大模型的参数推荐（3 轮内收敛）。我习惯把方法做到能在仿真平台和真实产线上跑通、能开源、能写成论文——这正是我想在企业研发岗继续做的事。</span>
+      <span data-en>My work addresses a recurring challenge in high-end manufacturing: <span class="hl">how to optimize processes and predict quality quickly and stably when experiments are costly, parameters are coupled, and quality targets conflict</span>. In injection molding I developed a few-shot multi-objective optimizer (stable convergence in 7–9 iterations), a parameter-only pre-cycle multimodal quality-prediction model (up to 36.3% lower RMSE), and explored knowledge-augmented LLMs for parameter recommendation (convergence within 3 rounds). I take methods all the way to running on simulation platforms and real production lines, open-sourcing them, and publishing—exactly what I want to keep doing in an industrial R&D role.</span>
+    </p>
+    <div class="metrics">
+      <div class="metric"><div class="big">7–9</div><div class="lab"><span data-zh>次迭代稳定收敛</span><span data-en>iters to converge</span></div></div>
+      <div class="metric"><div class="big">+33%</div><div class="lab"><span data-zh>优于常用梯度优化</span><span data-en>over gradient baselines</span></div></div>
+      <div class="metric"><div class="big">−36.3%</div><div class="lab"><span data-zh>质量预测 RMSE 降低</span><span data-en>RMSE drop in prediction</span></div></div>
+      <div class="metric"><div class="big">3</div><div class="lab"><span data-zh>轮大模型收敛</span><span data-en>rounds for LLM convergence</span></div></div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="sec-head"><h2><span data-zh>教育背景</span><span data-en>Education</span></h2></div>
+    <div class="row">
+      <div class="when">2024.09 – 2027.06</div>
+      <div class="body">
+        <h3><span data-zh>浙江大学</span><span data-en>Zhejiang University</span></h3>
+        <div class="deg"><span data-zh>机械工程 · 硕士在读（保研）</span><span data-en>M.Eng. in Mechanical Engineering (recommended admission)</span></div>
+        <p><span data-zh>研究方向：智能制造、工业数据建模、工艺参数优化、质量预测。</span><span data-en>Focus: intelligent manufacturing, industrial data modeling, process parameter optimization, quality prediction.</span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">2020.09 – 2024.06</div>
+      <div class="body">
+        <h3><span data-zh>浙江大学</span><span data-en>Zhejiang University</span></h3>
+        <div class="deg"><span data-zh>机械工程 · 工学学士</span><span data-en>B.Eng. in Mechanical Engineering</span></div>
+        <p><span data-zh>专业排名 8/43；2022.08–2023.01 赴美国 UIUC（伊利诺伊大学厄巴纳-香槟）机械工程交流。</span><span data-en>Rank 8/43; exchange in Mechanical Engineering at UIUC, USA (Aug 2022 – Jan 2023).</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="sec-head">
+      <h2><span data-zh>科研经历</span><span data-en>Research Experience</span></h2>
+      <span class="sub"><span data-zh>论文状态如实标注</span><span data-en>publication status as-is</span></span>
+    </div>
+
+    <div class="proj">
+      <div class="when">2024.12 – <span data-zh>至今</span><span data-en>Present</span></div>
+      <h3><span data-zh>少样本多目标工艺参数优化与生产验证</span><span data-en>Few-shot Multi-objective Process Optimization with On-line Validation</span></h3>
+      <ul>
+        <li><span data-zh>面向参数多、质量指标相互制约、实验成本高的高端制造，研究不依赖完整机理模型与大规模训练样本的迭代式参数优化方法。</span><span data-en>An iterative parameter-optimization method that needs neither a full physics model nor large training sets, for high-end manufacturing with many coupled, conflicting quality targets.</span></li>
+        <li><span data-zh>基于少量扰动实验与历史批次数据，用二阶近似 + 正则化求解估计各参数对质量的影响方向；按误差阶段动态调整步长与动量，将多目标更新拆分为方向与幅度。</span><span data-en>Estimates each parameter's effect direction via second-order approximation + regularization from a few perturbation trials and historical batches; adapts step size and momentum by error stage, splitting multi-objective updates into direction and magnitude.</span></li>
+        <li><span data-zh>仿真与生产设备验证：7–9 次调整内稳定达标，受扰动后 1–2 次恢复；物理实验整体质量评分较常用梯度优化提升 33%+。</span><span data-en>Validated in simulation and on production machines: reaches targets within 7–9 adjustments, recovers in 1–2 steps after disturbance; +33% overall quality score vs. common gradient methods on physical trials.</span></li>
+      </ul>
+      <div class="badges">
+        <span class="badge first"><span data-zh>一作 SCI · IJAMT (IF 3.1) 返修中</span><span data-en>First-author SCI · IJAMT (IF 3.1), in revision</span></span>
+        <span class="badge core"><span data-zh>中文核心《精密成形工程》· 学生排一</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · first student author</span></span>
+        <span class="badge"><span data-zh>国家发明专利 · 实质审查中</span><span data-en>National patent · under examination</span></span>
+        <span class="badge git"><a href="https://github.com/JamaicaBoy/model-free-parameter-optimization" target="_blank" rel="noopener">⎇ JamaicaBoy/model-free-parameter-optimization</a></span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2024.06 – <span data-zh>至今</span><span data-en>Present</span></div>
+      <h3><span data-zh>工业过程质量预测与多模态时序建模</span><span data-en>Industrial Quality Prediction & Multimodal Time-series Modeling</span></h3>
+      <ul>
+        <li><span data-zh>面向多阶段批次制造，研究在生产开始前仅有设定参数、当前周期传感器数据尚未产生时，如何用历史数据提前预测关键质量指标，支撑试制风险筛查与参数优化。</span><span data-en>For multiphase batch manufacturing: predicting key quality metrics before production starts—when only set parameters exist and current-cycle sensor data is unavailable—using historical data to support risk screening and optimization.</span></li>
+        <li><span data-zh>构建参数、传感器时序与质检结果的多模态建模流程，将历史周期组织为可检索的"过程记忆库"，通过阶段划分与特征融合匹配相似历史经验。</span><span data-en>Built a multimodal pipeline over parameters, sensor time-series and inspection results, organizing past cycles into a retrievable "process memory" matched via stage segmentation and feature fusion.</span></li>
+        <li><span data-zh>真实制造数据集验证（每类材料 300 周期）：两项质量指标 RMSE 较最强基线最多降低 36.3% 与 22.1%，并验证跨材料适用性。</span><span data-en>Validated on real datasets (300 cycles per material): up to 36.3% and 22.1% lower RMSE on two quality metrics vs. the strongest baseline, with cross-material generalization.</span></li>
+      </ul>
+      <div class="badges">
+        <span class="badge first"><span data-zh>一作 SCI · AEI (IF 9.9) 审稿中</span><span data-en>First-author SCI · AEI (IF 9.9), under review</span></span>
+        <span class="badge"><span data-zh>国家发明专利 · 已受理</span><span data-en>National patent · accepted</span></span>
+        <span class="badge git"><a href="https://github.com/JamaicaBoy/cspm-net" target="_blank" rel="noopener">⎇ JamaicaBoy/cspm-net</a></span>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="when">2025.10 – 2026.05</div>
+      <h3><span data-zh>工业工艺知识库与大语言模型辅助参数推荐</span><span data-en>Process Knowledge Base & LLM-assisted Parameter Recommendation</span></h3>
+      <ul>
+        <li><span data-zh>参与构建知识库增强（RAG）大模型流程，整理 819 篇中英文工艺文献，通过 Zotero、AnythingLLM、Ollama 形成本地可检索知识库与推荐流程。</span><span data-en>Co-built a knowledge-augmented (RAG) LLM pipeline over 819 Chinese/English process papers, using Zotero, AnythingLLM and Ollama for a local retrievable knowledge base and recommender.</span></li>
+        <li><span data-zh>系统按当前与目标质量的偏差检索材料特性、成形机理与调参经验，生成参数调整建议及推理依据；多材料仿真任务中均可 3 轮内收敛至目标质量范围。</span><span data-en>Retrieves material properties, forming mechanisms and tuning experience by the gap to target, generating parameter suggestions with reasoning; converges within 3 rounds across multi-material simulations.</span></li>
+      </ul>
+      <div class="badges">
+        <span class="badge core"><span data-zh>中文核心《精密成形工程》· 学生排一 · 已发表</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · first student author · published</span></span>
+        <span class="badge"><span data-zh>RAG · 本地大模型</span><span data-en>RAG · local LLM</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONORS -->
+  <section id="honors">
+    <div class="sec-head"><h2><span data-zh>荣誉奖励</span><span data-en>Honors & Awards</span></h2><span class="sub"><span data-zh>十余项，部分如下</span><span data-en>10+ in total, selected below</span></span></div>
+    <div class="honor-list">
+      <span><span data-zh>浙江大学一等奖学金</span><span data-en>ZJU First-class Scholarship</span></span>
+      <span><span data-zh>浙江省政府奖学金</span><span data-en>Zhejiang Provincial Government Scholarship</span></span>
+      <span><span data-zh>浙江大学优秀学生</span><span data-en>ZJU Outstanding Student</span></span>
+      <span><span data-zh>机械工程学院"五好研究生"</span><span data-en>"Five-good" Graduate, School of ME</span></span>
+      <span><span data-zh>优秀研究生</span><span data-en>Outstanding Graduate Student</span></span>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="sec-head"><h2><span data-zh>专业技能</span><span data-en>Skills</span></h2></div>
+    <div class="skill-group">
+      <h3><span data-zh>编程与框架</span><span data-en>Programming & Frameworks</span></h3>
+      <div class="tags"><span>Python</span><span>MATLAB</span><span>LaTeX</span><span>PyTorch</span><span>NumPy</span><span>Pandas</span><span>Matplotlib</span></div>
+    </div>
+    <div class="skill-group">
+      <h3><span data-zh>机器学习</span><span data-en>Machine Learning</span></h3>
+      <div class="tags">
+        <span><span data-zh>回归建模</span><span data-en>Regression modeling</span></span>
+        <span><span data-zh>深度学习</span><span data-en>Deep learning</span></span>
+        <span><span data-zh>特征工程</span><span data-en>Feature engineering</span></span>
+        <span><span data-zh>训练与验证</span><span data-en>Training & validation</span></span>
+        <span><span data-zh>超参数调优</span><span data-en>Hyperparameter tuning</span></span>
+        <span><span data-zh>误差分析</span><span data-en>Error analysis</span></span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3><span data-zh>工业数据分析</span><span data-en>Industrial Data Analysis</span></h3>
+      <div class="tags">
+        <span><span data-zh>传感器时序处理</span><span data-en>Sensor time-series processing</span></span>
+        <span><span data-zh>实验数据清洗</span><span data-en>Experimental data cleaning</span></span>
+        <span><span data-zh>参数-质量关联分析</span><span data-en>Parameter–quality correlation</span></span>
+        <span><span data-zh>结果可视化</span><span data-en>Result visualization</span></span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3><span data-zh>工业软件 & 工具</span><span data-en>Industrial Software & Tools</span></h3>
+      <div class="tags"><span>Moldex3D</span><span>Origin</span><span>SolidWorks</span><span>Fusion 360</span><span>Ollama</span><span>AnythingLLM</span><span>Zotero</span></div>
+    </div>
+    <div class="skill-group">
+      <h3><span data-zh>语言</span><span data-en>Languages</span></h3>
+      <div class="tags">
+        <span><span data-zh>CET-6 502 · CET-4 619</span><span data-en>CET-6 502 · CET-4 619</span></span>
+        <span><span data-zh>Duolingo 135（≈托福 105）</span><span data-en>Duolingo 135 (≈TOEFL 105)</span></span>
+        <span><span data-zh>全英文课程与文献经历</span><span data-en>English-taught coursework & literature</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT WORK -->
+  <section id="activities">
+    <div class="sec-head"><h2><span data-zh>学生工作</span><span data-en>Leadership & Activities</span></h2></div>
+    <ul class="work-list">
+      <li><span class="when">2024.09 – <span data-zh>至今</span><span data-en>Present</span></span><span><span data-zh>机械工程学院制造所硕士一班 副班长</span><span data-en>Deputy Class Leader, ME Graduate Class I (Mfg. Institute)</span></span></li>
+      <li><span class="when">2024.09 – <span data-zh>至今</span><span data-en>Present</span></span><span><span data-zh>制造所硕士第一党支部 纪检委员</span><span data-en>Discipline Inspection Officer, 1st Graduate Party Branch</span></span></li>
+      <li><span class="when">2023.02 – 2024.06</span><span><span data-zh>浙江大学国际联合学院 院生会主席团成员</span><span data-en>Student Union Presidium Member, ZJU-UIUC Institute</span></span></li>
+      <li><span class="when">2023.02 – 2024.06</span><span><span data-zh>国际联合学院 创新实验室助理</span><span data-en>Innovation Lab Assistant, ZJU-UIUC Institute</span></span></li>
+      <li><span class="when">2023.02 – 2024.06</span><span><span data-zh>国际联合学院团委 实践部部长</span><span data-en>Head of Practice Dept., Youth League Committee</span></span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p><span data-zh>© 2026 姚涵非 (Hanfei Yao) · 浙江大学机械工程学院 · 中共党员 · 2002.07</span><span data-en>© 2026 Hanfei Yao · School of Mechanical Engineering, Zhejiang University</span></p>
+    <p style="margin-top:6px;opacity:.7"><span data-zh>右上角可中/英切换 · 头像换真人照：把 hero-photo 里的 "YH" 改为 &lt;img src="photo.jpg"&gt;</span><span data-en>Toggle EN/中 at top-right · to add a photo, replace "YH" in hero-photo with &lt;img src="photo.jpg"&gt;</span></p>
+  </footer>
+
+</main>
+
+<script>
+  const toggle=document.getElementById('langToggle');
+  const html=document.documentElement;
+  toggle.addEventListener('click',()=>{
+    const en = html.getAttribute('lang')==='en';
+    html.setAttribute('lang', en?'zh':'en');
+    toggle.textContent = en?'EN':'中';
+  });
+</script>
+</body>
+</html>
