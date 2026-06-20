@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D 打印柔性电子封装 | 姚涵非</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in"><a class="back" href="../index.html">← 返回主页</a><span class="crumb">项目详情 · 机械设计与硬件开发</span></div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1>直写 3D 打印柔性电子"软-硬"界面封装</h1>
+    <div class="dmeta">
+      <span class="chip">暑期科研 · 2023.06–2023.07</span>
+      <span class="chip">核心成员</span>
+      <span class="chip k">材料 15:1 · 气压 3 psi</span>
+      <span class="chip">增材制造</span><span class="chip">PDMS</span><span class="chip">G-code</span>
+    </div>
+    <p class="dlede">为柔性电子芯片做"软-硬"界面封装：用自编 G-code 控制改装的气压挤出式 3D 打印机，系统性优化 PDMS 复合材料配比、挤出气压与移动速度，实现对芯片的稳定螺旋包裹打印。</p>
+  </div>
+
+  <section class="dsec">
+    <h2>项目背景</h2>
+    <p>柔性电子器件中刚性芯片与柔性基底之间存在"软-硬"界面，需要一层封装材料过渡保护。难点在于：材料既不能太稀（扩散）也不能太稠（挤不出），且固化方式与打印路径都需要工艺探索。</p>
+  </section>
+
+  <section class="dsec">
+    <h2>我的具体工作</h2>
+    <ul>
+      <li><b>打印系统搭建：</b>用 Repetier-Host 控制打印机并独立控制热床温度；自编 G-code（G0/G1/F 等指令）实现自定义螺旋包裹轨迹。</li>
+      <li><b>挤出装置改装：</b>用点胶机 + 气泵搭建<b>可调气压</b>的挤出装置，并设计支架固定针筒针头。</li>
+      <li><b>材料配比实验（核心）：</b>系统对比 PDMS : 纳米二氧化硅 = 20:1 / 15:1 / 10:1，确定 <b>15:1</b> 粘稠度最佳；对挤出气压多次实验确定 <b>3 psi</b> 最稳定。</li>
+      <li><b>固化工艺探索：</b>对比光固化 vs 热固化、边打边固化 vs 逐层固化，针对材料堆积问题提出"加快喷头速度 / 分区打印"方案，并用 G-code 温控实现逐层热固化兜底方案。</li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2>技术与工具</h2>
+    <p>Repetier-Host、G-code 编程、气压挤出（点胶机 + 气泵）、PDMS / 纳米二氧化硅复合材料、行星搅拌机、光 / 热固化工艺、文献驱动的参数优化（DOE 思维）。</p>
+  </section>
+
+  <section class="dsec">
+    <h2>成果与亮点</h2>
+    <ul>
+      <li>在"单芯片、单层"条件下实现较完美的螺旋包裹封装打印。</li>
+      <li>确定关键工艺窗口：材料 <b>15:1</b>、挤出 <b>3 psi</b>，可复现稳定挤出。</li>
+      <li>搭建从硬件（气压挤出）到软件（自编 G-code）到材料（配比）的完整工艺链路。</li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2>项目图片</h2>
+    <div class="gallery">
+      <figure><a href="img/a02-platform.jpg" target="_blank"><img src="img/a02-platform.jpg" alt="3D 打印平台"></a><figcaption>改装后的气压挤出式 3D 打印平台</figcaption></figure>
+      <figure><a href="img/a02-material.jpg" target="_blank"><img src="img/a02-material.jpg" alt="材料测试"></a><figcaption>实验室 PDMS 复合材料测试</figcaption></figure>
+      <figure><a href="img/a02-chip1.jpg" target="_blank"><img src="img/a02-chip1.jpg" alt="针头封装芯片"></a><figcaption>挤出针头螺旋包裹封装芯片（特写一）</figcaption></figure>
+      <figure><a href="img/a02-chip2.jpg" target="_blank"><img src="img/a02-chip2.jpg" alt="针头封装芯片"></a><figcaption>挤出针头螺旋包裹封装芯片（特写二）</figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:12px">点击图片可查看大图。</p>
+  </section>
+
+  <div class="dfoot">姚涵非 · <a href="../index.html">返回主页</a></div>
+</main>
+</body>
+</html>
