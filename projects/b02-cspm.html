@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生产前产品质量智能预测（CSPM-Net） | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 研究生科研</span><span data-en>Project · Graduate Research</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>生产前产品质量智能预测（CSPM-Net）</span><span data-en>Pre-production Quality Prediction (CSPM-Net)</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>第一作者 · 本人主导</span><span data-en>First author · led by me</span></span><span class="chip"><span data-zh>一作 SCI · AEI (IF 9.9) 审稿中</span><span data-en>First-author SCI · AEI (IF 9.9), under review</span></span><span class="chip"><span data-zh>国家发明专利 · 已受理</span><span data-en>National patent · accepted</span></span><span class="chip"><span data-zh>代表性工作</span><span data-en>Flagship</span></span></div>
+    <p class="dlede"><span data-zh>针对“开机前只有工艺参数、没有当前批次传感器数据时如何预测产品质量”的难题，提出跨模态阶段感知过程记忆网络 CSPM-Net：把历史批次的丰富传感器知识压缩成“可被参数查询的记忆表示”，新批次仅凭参数设定即可检索相关传感器派生知识做生产前(pre-cycle)质量预测；PC 数据集透光率/重量 RMSE 较最强基线分别降 36.3% / 22.1%，PMMA 数据集进一步验证一致提升。</span><span data-en>For the problem of predicting quality before startup—when only the planned parameters exist and current-cycle sensor data is unavailable—CSPM-Net (a cross-modal, stage-aware process-memory network) compresses rich historical sensor knowledge into a parameter-queryable memory, so a new batch can retrieve relevant sensor-derived knowledge for pre-cycle quality prediction; on PC datasets it cuts transmittance/weight RMSE by 36.3% / 22.1% vs. the strongest baseline, confirmed on PMMA.</span></p>
+  </div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>多相批次制造中质检存在大时延、无法实时反馈；开机前缺当前周期传感器数据，只能依靠历史数据提前预测质量。</span><span data-en>In multiphase batch manufacturing, inspection lags and gives no real-time feedback; before startup there is no current-cycle sensor data, so prediction must rely on historical data.</span></p></section>
+  <section class="dsec"><h2><span data-zh>方法 / 我的工作</span><span data-en>Method / My Work</span></h2><ul><li><span data-zh>把历史批次的传感器知识压缩为“可被参数查询”的过程记忆表示。</span><span data-en>Compress historical sensor knowledge into a parameter-queryable process-memory representation.</span></li><li><span data-zh>用动态规划做工艺阶段分段，区分不同阶段的过程模式。</span><span data-en>Segment process phases via dynamic programming to separate per-stage patterns.</span></li><li><span data-zh>用时序注意力 + 交叉注意力实现“仅凭参数”的开机前质量预测。</span><span data-en>Use temporal + cross attention for parameter-only, pre-cycle quality prediction.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>PC 数据集透光率/重量 RMSE 较最强基线降 36.3% / 22.1%；PMMA 一致提升。</span><span data-en>On PC, transmittance/weight RMSE down 36.3% / 22.1% vs. the best baseline; consistent gains on PMMA.</span></li><li><span data-zh>推荐参数在物理优化实验中产出接近目标的质量。</span><span data-en>Recommended parameters yield near-target quality in physical optimization experiments.</span></li><li><span data-zh>一作 SCI（AEI，IF 9.9，审稿中）+ 国家发明专利（已受理）。</span><span data-en>First-author SCI (AEI, IF 9.9, under review) + national patent (accepted).</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/b02-arch.jpg" target="_blank"><img src="img/b02-arch.jpg" alt=""></a><figcaption><span data-zh>CSPM-Net 编解码 + 注意力网络架构</span><span data-en>CSPM-Net encoder–decoder + attention architecture</span></figcaption></figure><figure><a href="img/b02-concept.jpg" target="_blank"><img src="img/b02-concept.jpg" alt=""></a><figcaption><span data-zh>过程信号阶段分割与“仅参数”查询示意</span><span data-en>Process-signal stage segmentation & parameter-only query</span></figcaption></figure><figure><a href="img/b02-result.jpg" target="_blank"><img src="img/b02-result.jpg" alt=""></a><figcaption><span data-zh>预测值 vs 实测值（RMSE 对比）</span><span data-en>Predicted vs. actual (RMSE comparison)</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人角色：第一作者，主导方法设计、软件实现与实验；代码已开源（GitHub: JamaicaBoy/cspm-net）。</span><span data-en>My role: first author, leading the method, implementation and experiments; open-sourced (GitHub: JamaicaBoy/cspm-net).</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>

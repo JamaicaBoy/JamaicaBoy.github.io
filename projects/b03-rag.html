@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大模型辅助的工艺参数推荐（知识库增强 RAG） | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 研究生科研</span><span data-en>Project · Graduate Research</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>大模型辅助的工艺参数推荐（知识库增强 RAG）</span><span data-en>LLM-assisted Parameter Recommendation (Knowledge-augmented RAG)</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>本人参与</span><span data-en>Contributor</span></span><span class="chip"><span data-zh>中文核心《精密成形工程》· 已发表</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · published</span></span><span class="chip"><span data-zh>RAG · 本地大模型</span><span data-en>RAG · local LLM</span></span></div>
+    <p class="dlede"><span data-zh>针对注射成形工艺调试“依赖经验、试错成本高、周期长”的问题，构建知识库增强(RAG)的生成式大模型工艺优化框架：自动搜集 819 篇中英文文献 → 切分 + 嵌入成向量知识库 → 本地部署大模型按“实际与目标质量偏差”动态生成参数调整建议并给出推理依据；在 PC、PMMA 等材料上 3 轮内精准收敛至目标质量，显著优于无知识库大模型与人工试错（需 7 轮以上）。</span><span data-en>For molding tuning that is experience-dependent, costly and slow, this builds a knowledge-augmented (RAG) generative-LLM framework: auto-collect 819 Chinese/English papers → chunk + embed into a vector knowledge base → a locally deployed LLM generates parameter adjustments with reasoning based on the gap between actual and target quality; on PC, PMMA and more it converges to target within 3 rounds, far better than an LLM without the knowledge base or manual trial-and-error (7+ rounds).</span></p>
+  </div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>注塑调参高度依赖老师傅经验，试错成本高、周期长，新人上手慢。</span><span data-en>Molding tuning relies heavily on veteran experience—costly, slow, and hard for newcomers.</span></p></section>
+  <section class="dsec"><h2><span data-zh>方法</span><span data-en>Method</span></h2><ul><li><span data-zh>自动搜集 819 篇中英文工艺文献 → 文档切分 → 嵌入模型 → 向量知识库。</span><span data-en>Auto-collect 819 papers → document chunking → embedding model → vector knowledge base.</span></li><li><span data-zh>本地部署生成式大模型，按质量偏差检索增强生成参数调整建议与推理依据（Zotero / AnythingLLM / Ollama）。</span><span data-en>Locally deployed LLM does retrieval-augmented generation of parameter advice with reasoning, by the quality gap (Zotero / AnythingLLM / Ollama).</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>PC、PMMA 等材料 3 轮内收敛至目标质量；无知识库大模型与人工试错（7 轮+）均不及。</span><span data-en>Converges within 3 rounds on PC/PMMA; beats the no-knowledge-base LLM and manual trial-and-error (7+ rounds).</span></li><li><span data-zh>成果发表于中文核心《精密成形工程》。</span><span data-en>Published in the CSCD-core Journal of Netshape Forming Engineering.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/b03-kb.jpg" target="_blank"><img src="img/b03-kb.jpg" alt=""></a><figcaption><span data-zh>知识库构建流程（文献检索 → 切分 → 嵌入 → 向量库）</span><span data-en>Knowledge-base pipeline (search → chunk → embed → vector store)</span></figcaption></figure><figure><a href="img/b03-rag.jpg" target="_blank"><img src="img/b03-rag.jpg" alt=""></a><figcaption><span data-zh>检索增强推理流程（偏差 → 检索 → 增强 → 大模型）</span><span data-en>RAG inference (gap → retrieve → augment → LLM)</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人角色：参与该课题组合作研究，涉及本地大模型部署、知识库构建与实验等环节。</span><span data-en>My role: contributed to this collaborative lab research—local LLM deployment, knowledge-base construction and experiments.</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>
