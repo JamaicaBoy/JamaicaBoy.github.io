@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红外温度场 + CNN 注塑质量预测 | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 机器视觉与 AI 质检</span><span data-en>Project · Machine Vision & AI Inspection</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>红外温度场 + CNN 注塑质量预测</span><span data-en>Infrared Temperature Field + CNN Quality Prediction</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>课题组研究</span><span data-en>Lab research</span></span><span class="chip"><span data-zh>发表于 J. Manufacturing Processes (2024)</span><span data-en>Published in J. Manufacturing Processes (2024)</span></span><span class="chip"><span data-zh>CNN</span><span data-en>CNN</span></span><span class="chip"><span data-zh>软测量</span><span data-en>Soft sensing</span></span></div>
+    <p class="dlede"><span data-zh>用红外相机在线采集制件温度场，结合 CNN 把“温度场分布 → 质量指标”的复杂非线性关系映射出来，对质量、抗拉强度、翘曲变形三项指标做无损在线预测，优化后平均相对误差分别 3.48%、3.60%、8.00%。</span><span data-en>An infrared camera captures the part's temperature field online, and a CNN maps the complex nonlinear relation from field to quality—non-destructively predicting mass, tensile strength and warpage, with optimized mean relative errors of 3.48%, 3.60% and 8.00%.</span></p>
+  </div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>质量与制件温度场分布密切相关，但“用温度场定量预测质量”一直是难点。</span><span data-en>Quality correlates closely with the temperature field, yet quantitatively predicting quality from it has been hard.</span></p></section>
+  <section class="dsec"><h2><span data-zh>方法</span><span data-en>Method</span></h2><ul><li><span data-zh>搭建基于红外相机的在线温度场测量系统。</span><span data-en>Built an infrared-camera online temperature-field measurement system.</span></li><li><span data-zh>不同工艺参数下做注塑实验、采集热图建数据集；图像分割 + 数据增广预处理。</span><span data-en>Collected thermal images under varied parameters; preprocessed with segmentation and augmentation.</span></li><li><span data-zh>构建 CNN 映射温度场 → 质量；超参优化 + 五折交叉验证。</span><span data-en>Built a CNN mapping field → quality; hyperparameter tuning + 5-fold cross-validation.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>优化后平均相对误差：质量 3.48%、抗拉强度 3.60%、翘曲变形 8.00%。</span><span data-en>Optimized mean relative error: mass 3.48%, tensile 3.60%, warpage 8.00%.</span></li><li><span data-zh>红外温度场作“软测量”输入 + CNN 端到端预测多质量指标。</span><span data-en>Infrared field as a soft-sensing input + CNN end-to-end multi-metric prediction.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/c11-2.jpg" target="_blank"><img src="img/c11-2.jpg" alt=""></a><figcaption><span data-zh>红外在线测量装置与温度场</span><span data-en>Infrared online measurement setup & temperature fields</span></figcaption></figure><figure><a href="img/c11-1.jpg" target="_blank"><img src="img/c11-1.jpg" alt=""></a><figcaption><span data-zh>质量预测结果</span><span data-en>Quality-prediction results</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人熟悉其方法思路（领域学习 / 技术调研）。</span><span data-en>I am familiar with the method (domain study / technical review).</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>

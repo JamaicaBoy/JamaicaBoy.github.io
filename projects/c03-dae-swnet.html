@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>红外热成像内部缺陷无监督分割（DAE-SWnet） | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 机器视觉与 AI 质检</span><span data-en>Project · Machine Vision & AI Inspection</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>红外热成像内部缺陷无监督分割（DAE-SWnet）</span><span data-en>Unsupervised Infrared Internal-defect Segmentation (DAE-SWnet)</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>课题组研究</span><span data-en>Lab research</span></span><span class="chip"><span data-zh>发表于 J. Manufacturing Systems (2025)</span><span data-en>Published in J. Manufacturing Systems (2025)</span></span><span class="chip"><span data-zh>无监督</span><span data-en>Unsupervised</span></span><span class="chip"><span data-zh>Swin Transformer</span><span data-en>Swin Transformer</span></span><span class="chip"><span data-zh>少样本</span><span data-en>Few-shot</span></span></div>
+    <p class="dlede"><span data-zh>针对工业内部缺陷“有效标注样本稀缺”的痛点，用脉冲热成像的温度演化规律从仅 2 个缺陷样本生成 1.6 万张热图，并提出无监督分割框架 DAE-SWnet（自编码去噪 + Swin Transformer + Wnet），缺陷分割达 74.0% IoU、84.3% F1、97.7% 准确率，单张推理 0.278s。</span><span data-en>To beat the scarcity of labeled internal-defect samples, it uses pulse-thermography temperature evolution to expand just 2 defect samples into 16,000 thermal images, and proposes the unsupervised DAE-SWnet (denoising autoencoder + Swin Transformer + Wnet), reaching 74.0% IoU, 84.3% F1, 97.7% accuracy at 0.278 s/image.</span></p>
+  </div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>红外热成像可看内部缺陷但噪声大、加热不均；传统算法处理非线性差，监督深度学习又依赖大量标注（工业不现实）。</span><span data-en>Infrared thermography reveals internal defects but is noisy and unevenly heated; classical methods handle nonlinearity poorly, and supervised deep learning needs lots of labels (impractical in industry).</span></p></section>
+  <section class="dsec"><h2><span data-zh>方法</span><span data-en>Method</span></h2><ul><li><span data-zh>数据增广：用脉冲热成像把 2 个样本扩成 1.6 万张热图。</span><span data-en>Augmentation: expand 2 samples to 16,000 thermal images via pulse thermography.</span></li><li><span data-zh>自编码器去噪（发现“重构损失—去噪效果”非单调关系）。</span><span data-en>Denoising autoencoder (found a non-monotonic loss–denoising relationship).</span></li><li><span data-zh>Swin Transformer + Wnet 协同分割，优化编解码通道。</span><span data-en>Swin Transformer + Wnet jointly segment, with optimized encoder/decoder channels.</span></li><li><span data-zh>仅用人工设计缺陷训练即可泛化到不同材料 / 形状。</span><span data-en>Trained only on designed defects, it generalizes across materials and shapes.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>74.0% IoU / 84.3% F1 / 97.7% 准确率，平均推理 0.278s。</span><span data-en>74.0% IoU / 84.3% F1 / 97.7% accuracy, 0.278 s/image.</span></li><li><span data-zh>跨材料、跨缺陷形状泛化良好。</span><span data-en>Generalizes well across materials and defect shapes.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/c03-1.jpg" target="_blank"><img src="img/c03-1.jpg" alt=""></a><figcaption><span data-zh>DAE-SWnet 框架（去噪自编码 + Swin Transformer-Wnet）</span><span data-en>DAE-SWnet framework (denoising AE + Swin-Transformer Wnet)</span></figcaption></figure><figure><a href="img/c03-3.jpg" target="_blank"><img src="img/c03-3.jpg" alt=""></a><figcaption><span data-zh>数据增广与热成像分割结果</span><span data-en>Data augmentation and thermography segmentation results</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人熟悉其方法思路（领域学习 / 技术调研）；论文一作为课题组其他成员。</span><span data-en>I am familiar with the method (domain study / technical review); first authorship belongs to other lab members.</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>

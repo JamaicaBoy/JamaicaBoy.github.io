@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工业过程监测云原生平台（Kube-IPM） | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 工业软件平台与技术综述</span><span data-en>Project · Industrial Platforms & Technical Review</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>工业过程监测云原生平台（Kube-IPM）</span><span data-en>Cloud-native Industrial Process-monitoring Platform (Kube-IPM)</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>课题组研究</span><span data-en>Lab research</span></span><span class="chip"><span data-zh>发表于 IEEE IoT Journal (2025)</span><span data-en>Published in IEEE IoT Journal (2025)</span></span><span class="chip"><span data-zh>Kubernetes</span><span data-en>Kubernetes</span></span><span class="chip"><span data-zh>云-边协同</span><span data-en>Cloud–edge</span></span></div>
+    <p class="dlede"><span data-zh>面向大规模工业设备的异构数据实时监测难题，提出 Kubernetes 原生平台 Kube-IPM：用注意力填充(ABP)解决异构特征维度对齐、时序注意力编解码处理时延与变量耦合，并用云-边编排实现可扩展实时监测；MAE 0.13(单步)/0.26(多步)，较最优基线提升约 38%，单机运营成本约 $65。</span><span data-en>For real-time monitoring of large fleets with heterogeneous data, Kube-IPM is a Kubernetes-native platform: attention-based padding (ABP) aligns heterogeneous feature dimensions, a temporal-attention encoder–decoder handles delay and coupling, and cloud–edge orchestration enables scalable monitoring; MAE 0.13 (1-step) / 0.26 (multi-step), ~38% better than the best baseline, ~$65 to run per machine.</span></p>
+  </div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>大规模 IIoT 监测面临设备特征维度不一、多变量非线性耦合、动态时延。</span><span data-en>Large-scale IIoT monitoring faces mismatched feature dimensions, nonlinear coupling and dynamic delays.</span></p></section>
+  <section class="dsec"><h2><span data-zh>方法</span><span data-en>Method</span></h2><ul><li><span data-zh>ABP 注意力填充：生成有意义的特征扩展而非补 0，保数据完整。</span><span data-en>Attention-based padding: generate meaningful feature expansion instead of zero-padding.</span></li><li><span data-zh>编码器-解码器内时序注意力层，应对时延与变量耦合。</span><span data-en>Temporal-attention layers in the encoder–decoder handle delay and coupling.</span></li><li><span data-zh>基于 Kubernetes 的云-边部署，实现可扩展实时监测。</span><span data-en>Kubernetes cloud–edge deployment for scalable real-time monitoring.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>MAE 0.13(单步)/0.26(多步)，较顶级预测模型提升约 38%。</span><span data-en>MAE 0.13 (1-step) / 0.26 (multi-step), ~38% better than top models.</span></li><li><span data-zh>采样间隔内维持 12 个并发副本；运营成本约 $65/台。</span><span data-en>Sustains 12 concurrent replicas within the sampling interval; ~$65 to run per machine.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/c05-1.jpg" target="_blank"><img src="img/c05-1.jpg" alt=""></a><figcaption><span data-zh>实验结果对比</span><span data-en>Experimental comparison</span></figcaption></figure><figure><a href="img/c05-2.jpg" target="_blank"><img src="img/c05-2.jpg" alt=""></a><figcaption><span data-zh>多步预测结果对比</span><span data-en>Multi-step prediction comparison</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人熟悉其方法思路（领域学习 / 技术调研）；论文一作为课题组其他成员。</span><span data-en>I am familiar with the method (domain study / technical review); first authorship belongs to other lab members.</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工业加热过程时序再注意力 LSTM 预测（TRA-LSTM） | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 工业 AI 与质量预测</span><span data-en>Project · Industrial AI & Quality Prediction</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>工业加热过程时序再注意力 LSTM 预测（TRA-LSTM）</span><span data-en>Temporal Re-Attention LSTM for Industrial Heating (TRA-LSTM)</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>课题组研究</span><span data-en>Lab research</span></span><span class="chip"><span data-zh>发表于 IEEE TII (2025)</span><span data-en>Published in IEEE TII (2025)</span></span><span class="chip"><span data-zh>时序注意力</span><span data-en>Temporal attention</span></span><span class="chip"><span data-zh>再注意力损失</span><span data-en>Re-attention loss</span></span></div>
+    <p class="dlede"><span data-zh>加热过程占材料制造 60%+ 能耗，但强耦合、大时延导致温度难预测；TRA-LSTM 在编解码 LSTM 上用时序注意力提取关键历史特征，再加“再注意力”损失校正注意力对齐时延，在 4 个真实数据集 6 项预测上稳定优于 5 种先进方法。</span><span data-en>Heating accounts for 60%+ of manufacturing energy, yet strong coupling and large delays make temperature hard to predict. TRA-LSTM adds temporal attention to an encoder–decoder LSTM and a “re-attention” loss to align attention with the true delay, beating 5 advanced methods across 6 tasks on 4 real datasets.</span></p>
+  </div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>加热能耗占比高，温度预测是能源管理第一步；但多变量耦合、大时延、传热特性频繁变化。</span><span data-en>Heating dominates energy use and prediction is the first step to energy management; but variables are coupled, delays large, and heat-transfer properties keep changing.</span></p></section>
+  <section class="dsec"><h2><span data-zh>方法</span><span data-en>Method</span></h2><ul><li><span data-zh>编码器-解码器框架 + 时序注意力模块提取关键历史特征。</span><span data-en>Encoder–decoder with a temporal-attention module extracting key historical features.</span></li><li><span data-zh>再注意力损失层校正注意力，使其对齐真实时延。</span><span data-en>A re-attention loss layer corrects attention to align with the real delay.</span></li><li><span data-zh>在 4 个真实数据集（含注塑料筒加热、电池热失控）上验证。</span><span data-en>Validated on 4 real datasets, including barrel heating and battery thermal runaway.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>6 项预测均稳定优于 5 种先进时序方法；再注意力权重与实测时延对齐。</span><span data-en>Beats 5 advanced methods on all 6 tasks; re-attention weights align with measured delays.</span></li><li><span data-zh>消融证明再注意力模块贡献显著，提升大时延场景的精度与可解释性。</span><span data-en>Ablation shows the re-attention module contributes significantly, improving accuracy and interpretability under large delays.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/c08-2.jpg" target="_blank"><img src="img/c08-2.jpg" alt=""></a><figcaption><span data-zh>工业加热监测平台与现场</span><span data-en>Industrial heating monitoring platform & site</span></figcaption></figure><figure><a href="img/c08-3.jpg" target="_blank"><img src="img/c08-3.jpg" alt=""></a><figcaption><span data-zh>温度预测曲线对比</span><span data-en>Temperature-prediction curves vs. baselines</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人熟悉其方法思路（领域学习 / 技术调研）；论文一作为课题组其他成员。</span><span data-en>I am familiar with the method (domain study / technical review); first authorship belongs to other lab members.</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>

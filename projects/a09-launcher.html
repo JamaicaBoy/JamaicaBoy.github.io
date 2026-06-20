@@ -3,52 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>发射机构与弹道建模 | 姚涵非</title>
+<title>抛射发射机构与弹道动力学建模 | 姚涵非 Hanfei Yao</title>
 <link rel="stylesheet" href="detail.css">
 </head>
 <body>
-<header class="dnav"><div class="dnav-in"><a class="back" href="../index.html">← 返回主页</a><span class="crumb">项目详情 · 机械设计与硬件开发</span></div></header>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 机械设计与硬件开发</span><span data-en>Project · Mechanical Design & Hardware</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
 <main class="dwrap">
   <div class="dhero">
-    <h1>发射机构设计与弹道动力学建模</h1>
-    <div class="dmeta">
-      <span class="chip">TAM212 动力学课程项目 · 2022 春</span>
-      <span class="chip">团队成员</span>
-      <span class="chip">抛体运动</span><span class="chip">空气阻力标定</span><span class="chip">频闪摄影测量</span>
-    </div>
-    <p class="dlede">动力学课程的设计 + 实验项目：设计一套发射机构，并通过频闪相机实验标定空气阻力系数，用于对抛射体弹道做动力学建模与预测。</p>
+    <h1><span data-zh>抛射发射机构与弹道动力学建模</span><span data-en>Launcher Mechanism & Ballistics Modeling</span></h1>
+    <div class="dmeta"><span class="chip k"><span data-zh>TAM212 动力学课程项目 · 2022 春</span><span data-en>TAM212 Dynamics course · Spring 2022</span></span><span class="chip"><span data-zh>团队成员</span><span data-en>Team member</span></span><span class="chip"><span data-zh>抛体运动</span><span data-en>Projectile motion</span></span><span class="chip"><span data-zh>频闪摄影测量</span><span data-en>Stroboscopic measurement</span></span></div>
+    <p class="dlede"><span data-zh>动力学课程的设计 + 实验项目：设计一套发射机构，并通过频闪相机实验标定空气阻力系数，用于对抛射体弹道做动力学建模与预测。</span><span data-en>A dynamics course design + experiment: design a launcher mechanism and calibrate the air-drag coefficient via stroboscopic-camera experiments, then model and predict the projectile's trajectory.</span></p>
   </div>
-
-  <section class="dsec">
-    <h2>项目背景</h2>
-    <p>课程要求把质点 / 刚体运动学与动力学理论用于真实机构。本组设计发射机构并研究抛射体弹道，其中空气阻力是预测落点的关键不确定量，因此需要用实验把阻力系数标定出来。</p>
-  </section>
-
-  <section class="dsec">
-    <h2>我的具体工作</h2>
-    <ul>
-      <li><b>机构设计：</b>参与发射机构设计——发射体、限位卡扣、触发与击发结构、底座与侧板等部件。</li>
-      <li><b>阻力系数实验：</b>用频闪相机拍摄乒乓球竖直下落，将各时刻图像拼接，逐点测速、求加速度，结合受力方程<b>反解空气阻力系数</b>。</li>
-      <li><b>误差分析：</b>分析乒乓球过轻、竖直气流扰动、频闪测量为估计值等误差来源。</li>
-      <li><b>动力学建模：</b>将标定的阻力系数代入弹道模型预测发射轨迹。</li>
-    </ul>
-  </section>
-
-  <section class="dsec">
-    <h2>技术与工具</h2>
-    <p>质点运动学 / 动力学、抛体 + 空气阻力建模、频闪摄影测量、数据处理（差分求速度 / 加速度）、误差分析、机构设计。</p>
-  </section>
-
-  <section class="dsec">
-    <h2>项目图片</h2>
-    <div class="gallery">
-      <figure><a href="img/a09-1.jpg" target="_blank"><img src="img/a09-1.jpg" alt="发射机构实物"></a><figcaption>发射机构实物（一）</figcaption></figure>
-      <figure><a href="img/a09-2.jpg" target="_blank"><img src="img/a09-2.jpg" alt="发射机构实物"></a><figcaption>发射机构实物（二）</figcaption></figure>
-    </div>
-    <p class="note" style="margin-top:12px">点击图片可查看大图。</p>
-  </section>
-
-  <div class="dfoot">姚涵非 · <a href="../index.html">返回主页</a></div>
+  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>课程要求把质点 / 刚体运动学与动力学理论用于真实机构；空气阻力是预测落点的关键不确定量，需用实验标定。</span><span data-en>The course applies particle/rigid-body kinematics and dynamics to a real mechanism; air drag is the key uncertainty for landing prediction and must be calibrated experimentally.</span></p></section>
+  <section class="dsec"><h2><span data-zh>我的工作</span><span data-en>What I Did</span></h2><ul><li><span data-zh>参与发射机构设计（发射体、限位、触发与击发结构等）。</span><span data-en>Contributed to the launcher design (emitter, limit stop, trigger/firing parts).</span></li><li><span data-zh>用频闪相机拍乒乓球竖直下落，逐点测速求加速度，反解空气阻力系数。</span><span data-en>Used a stroboscopic camera on a vertically falling ping-pong ball to measure velocity/acceleration and back-solve the drag coefficient.</span></li><li><span data-zh>分析误差来源（乒乓球过轻、气流扰动、频闪为估计值）。</span><span data-en>Analyzed error sources (too-light ball, air disturbance, stroboscopic estimates).</span></li><li><span data-zh>将标定的阻力系数代入弹道模型预测发射轨迹。</span><span data-en>Fed the calibrated coefficient into a ballistics model to predict the trajectory.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>成果</span><span data-en>Results</span></h2><ul><li><span data-zh>验证模型预测与实测轨迹的一致性，体现机构设计 + 运动学/动力学建模 + 实验测量的结合。</span><span data-en>Validated model vs. measured trajectory, combining mechanism design, kinematics/dynamics modeling and experiment.</span></li></ul></section>
+  <section class="dsec"><h2><span data-zh>说明</span><span data-en>Note</span></h2><p class="note"><span data-zh>说明：现有实物照片为拍屏、清晰度不足，本页以方法与实验描述为主；如后续补充到更清晰的素材可加入图片。</span><span data-en>Note: the available photos are low-resolution screen shots, so this page focuses on method and experiment; clearer media can be added later.</span></p></section>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
 </main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
 </body>
 </html>

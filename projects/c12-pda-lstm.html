@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多阶段双注意力 LSTM 质量预测 | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 工业 AI 与质量预测</span><span data-en>Project · Industrial AI & Quality Prediction</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>多阶段双注意力 LSTM 工业质量预测（PDA-LSTM）</span><span data-en>Multi-stage Dual-attention LSTM for Industrial Quality Prediction (PDA-LSTM)</span></h1>
+    <div class="dmeta">
+      <span class="chip k"><span data-zh>课题组研究 · 本人参与</span><span data-en>Lab research · contributor</span></span>
+      <span class="chip"><span data-zh>发表于 IEEE TII (2024)</span><span data-en>Published in IEEE TII (2024)</span></span>
+      <span class="chip">LSTM</span><span class="chip"><span data-zh>双注意力</span><span data-en>Dual attention</span></span>
+      <span class="chip"><span data-zh>可解释性</span><span data-en>Interpretability</span></span>
+    </div>
+    <p class="dlede"><span data-zh>针对注塑等多阶段、非线性工业过程的产品质量难以提前预测的问题，提出"先按工艺阶段分段、再为每段建独立的双注意力 LSTM 模型"的 PDA-LSTM 方法，在提升预测精度的同时还能指出关键变量与关键时间点，兼具精度与可解释性。</span><span data-en>For hard-to-predict quality in multi-stage, nonlinear processes like injection molding, PDA-LSTM first segments the process by stage, then builds a dual-attention LSTM per stage—improving accuracy while highlighting the key variables and time steps, combining accuracy with interpretability.</span></p>
+  </div>
+
+  <section class="dsec">
+    <h2><span data-zh>背景与痛点</span><span data-en>Background</span></h2>
+    <p><span data-zh>传统离线质检存在大时延、无法实时反馈；过程数据呈多阶段、非线性、多变量耦合，常规模型难以充分提取特征。</span><span data-en>Offline inspection has large delays and no real-time feedback; process data is multi-stage, nonlinear and multivariate-coupled, so ordinary models struggle to extract features.</span></p>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>方法 / 技术路线</span><span data-en>Method</span></h2>
+    <ul>
+      <li><span data-zh><b>阶段分割：</b>把整段时序按工艺阶段（填充 / 保压 / 冷却等）切分。</span><span data-en><b>Stage segmentation:</b> split the time series by process phase (filling / packing / cooling, etc.).</span></li>
+      <li><span data-zh><b>分段建模：</b>为每个阶段单独建立模型，捕捉不同阶段的数据模式。</span><span data-en><b>Per-stage modeling:</b> a separate model per stage captures each stage's distinct patterns.</span></li>
+      <li><span data-zh><b>双注意力：</b>在 LSTM 中引入输入注意力（选关键变量）与时序注意力（选关键时间步）。</span><span data-en><b>Dual attention:</b> input attention selects key variables, temporal attention selects key time steps, within the LSTM.</span></li>
+      <li><span data-zh><b>验证：</b>数值算例 + 真实注塑过程双重验证，网格搜索选超参。</span><span data-en><b>Validation:</b> numerical cases plus a real injection-molding process, with grid-search hyperparameters.</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>结果与亮点</span><span data-en>Results & Highlights</span></h2>
+    <ul>
+      <li><span data-zh>较已有方法预测精度更高，且能解释关键输入变量与关键时间点（精度 + 可解释性双优）。</span><span data-en>Higher accuracy than prior methods, while explaining the key input variables and time points (accuracy + interpretability).</span></li>
+      <li><span data-zh>把"多阶段过程显式建模"与"双注意力机制"结合，既提精度又给工艺机理提示。</span><span data-en>Combines explicit multi-stage modeling with dual attention—boosting accuracy and offering process-mechanism hints.</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>图片</span><span data-en>Figures</span></h2>
+    <div class="gallery">
+      <figure><a href="img/c12-2.jpg" target="_blank"><img src="img/c12-2.jpg" alt="architecture"></a><figcaption><span data-zh>阶段分割 + 分段双注意力 LSTM 架构</span><span data-en>Stage segmentation + per-stage dual-attention LSTM architecture</span></figcaption></figure>
+      <figure><a href="img/c12-1.jpg" target="_blank"><img src="img/c12-1.jpg" alt="attention"></a><figcaption><span data-zh>各工艺阶段的关键变量注意力分布</span><span data-en>Key-variable attention across process stages</span></figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:12px"><span data-zh>本人角色：参与该课题组研究（如方法复现、数据处理与对比实验等可核实环节）；论文一作为课题组其他成员。</span><span data-en>My role: contributed to this lab research (e.g., reproduction, data processing, comparison experiments); first authorship belongs to other lab members.</span></p>
+  </section>
+
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>
