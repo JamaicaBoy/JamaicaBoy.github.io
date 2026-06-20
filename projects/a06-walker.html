@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四足步行器 Walker | 姚涵非 Hanfei Yao</title>
+<link rel="stylesheet" href="detail.css">
+</head>
+<body>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 机械设计与硬件开发</span><span data-en>Project · Mechanical Design & Hardware</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
+<main class="dwrap">
+  <div class="dhero">
+    <h1><span data-zh>四足步行器 Walker</span><span data-en>Quadruped Walker</span></h1>
+    <div class="dmeta">
+      <span class="chip"><span data-zh>UIUC 课程设计 · 2022 秋</span><span data-en>UIUC course design · Fall 2022</span></span>
+      <span class="chip"><span data-zh>团队成员（全英文）</span><span data-en>Team member (English-taught)</span></span>
+      <span class="chip k"><span data-zh>单电机驱动四腿</span><span data-en>Single motor, four legs</span></span>
+      <span class="chip"><span data-zh>四杆 + 凸轮机构</span><span data-en>Four-bar + cam</span></span>
+    </div>
+    <p class="dlede"><span data-zh>UIUC 交换期间的团队设计项目：设计一只仅用单台电机驱动的四足步行器，综合四杆与凸轮机构、经齿轮传动把动力分配到四条腿，整机控制在 30 cm 立方体内，并通过实际行走测试。</span><span data-en>A team design project during my UIUC exchange: a quadruped walker driven by a single motor, combining four-bar linkages and cams and distributing power to four legs through gears, packed within a 30 cm cube and validated by actual walking tests.</span></p>
+  </div>
+
+  <section class="dsec">
+    <h2><span data-zh>设计要点</span><span data-en>Design Highlights</span></h2>
+    <ul>
+      <li><span data-zh><b>单电机驱动：</b>用一台电机经齿轮传动同时驱动四条腿，简化动力系统、降低成本与重量。</span><span data-en><b>Single-motor drive:</b> one motor drives all four legs through gears, simplifying the powertrain and cutting cost and weight.</span></li>
+      <li><span data-zh><b>机构设计：</b>综合四杆机构与凸轮，把电机的旋转运动转换为四条腿协调的迈步动作。</span><span data-en><b>Mechanism:</b> four-bar linkages plus cams convert the motor's rotation into coordinated stepping of the four legs.</span></li>
+      <li><span data-zh><b>尺寸约束：</b>整机紧凑设计，控制在 30 cm 立方体的空间内。</span><span data-en><b>Size constraint:</b> a compact design fitting within a 30 cm cube.</span></li>
+      <li><span data-zh><b>团队协作：</b>在全英文、跨文化团队中完成"设计—制造—测试—优化"完整迭代，含 CATME 同行互评。</span><span data-en><b>Teamwork:</b> ran the full design–build–test–improve iteration in an English-speaking, cross-cultural team, including CATME peer evaluation.</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>行走演示</span><span data-en>Walking Demo</span></h2>
+    <video class="pvideo" controls preload="metadata" poster="img/a06-walk1.jpg">
+      <source src="a06-walker-demo.mp4" type="video/mp4">
+      <span data-zh>你的浏览器不支持视频播放，可<a href="a06-walker-demo.mp4">点此下载查看</a>。</span><span data-en>Your browser cannot play the video; <a href="a06-walker-demo.mp4">download it here</a>.</span>
+    </video>
+    <p class="note" style="margin-top:10px"><span data-zh>实际行走测试录像（已压缩）。</span><span data-en>Actual walking-test footage (compressed).</span></p>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>行走测试照片</span><span data-en>Walking-test Photos</span></h2>
+    <div class="gallery">
+      <figure><a href="img/a06-walk1.jpg" target="_blank"><img src="img/a06-walk1.jpg" alt="walking test"></a><figcaption><span data-zh>四足步行器地面行走测试（一）</span><span data-en>Quadruped walking test (1)</span></figcaption></figure>
+      <figure><a href="img/a06-walk2.jpg" target="_blank"><img src="img/a06-walk2.jpg" alt="walking test"></a><figcaption><span data-zh>四足步行器地面行走测试（二）</span><span data-en>Quadruped walking test (2)</span></figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:12px"><span data-zh>图片取自行走测试录像帧。点击图片可查看大图。</span><span data-en>Frames from the walking-test video. Click an image to view full size.</span></p>
+  </section>
+
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>

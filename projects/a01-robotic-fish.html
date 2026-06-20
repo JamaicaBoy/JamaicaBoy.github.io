@@ -3,64 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>仿生机器鱼传动机构 | 姚涵非</title>
+<title>仿生机器鱼传动机构 | 姚涵非 Hanfei Yao</title>
 <link rel="stylesheet" href="detail.css">
 </head>
 <body>
-<header class="dnav"><div class="dnav-in"><a class="back" href="../index.html">← 返回主页</a><span class="crumb">项目详情 · 机械设计与硬件开发</span></div></header>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 机械设计与硬件开发</span><span data-en>Project · Mechanical Design & Hardware</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
 <main class="dwrap">
   <div class="dhero">
-    <h1>仿生机器鱼的驱动与传动机构改进</h1>
+    <h1><span data-zh>仿生机器鱼的驱动与传动机构改进</span><span data-en>Driving & Transmission Improvement of a Biomimetic Robotic Fish</span></h1>
     <div class="dmeta">
-      <span class="chip">暑期科研 · 2021.06–2021.08</span>
-      <span class="chip">核心成员</span>
-      <span class="chip k">获校级优秀展报奖</span>
-      <span class="chip">仿生机器人</span><span class="chip">运动转换机构</span><span class="chip">CAD / 3D 打印</span>
+      <span class="chip"><span data-zh>暑期科研 · 2021.06–2021.08</span><span data-en>Summer research · Jun–Aug 2021</span></span>
+      <span class="chip"><span data-zh>核心成员</span><span data-en>Core member</span></span>
+      <span class="chip k"><span data-zh>获校级优秀展报奖</span><span data-en>University best-poster award</span></span>
+      <span class="chip"><span data-zh>仿生机器人</span><span data-en>Biomimetic robot</span></span>
+      <span class="chip"><span data-zh>运动转换机构</span><span data-en>Motion-conversion mechanism</span></span>
+      <span class="chip">CAD / 3D Printing</span>
     </div>
-    <p class="dlede">针对课题组"柔性电液泵机器鱼"动力不足的痛点，改良斯特林发动机作为新型驱动源，并自主设计"圆周运动→垂直摆动"的跨平面传动机构与机身骨架，完成等比例样机制作与游动测试。</p>
+    <p class="dlede"><span data-zh>针对课题组"柔性电液泵机器鱼"动力不足的痛点，改良斯特林发动机作为新型驱动源，并自主设计"圆周运动→垂直摆动"的跨平面传动机构与机身骨架，完成等比例样机制作与游动测试。</span><span data-en>To address the underpowered "soft electro-hydraulic pump" robotic fish, I introduced a modified Stirling engine as a new power source and self-designed a cross-plane "rotation → vertical oscillation" transmission and body frame, building and testing a scaled prototype.</span></p>
   </div>
 
   <section class="dsec">
-    <h2>项目背景</h2>
-    <p>课题组以"柔性电液泵"（一种仿生双向变量液压泵，发表于 Nature Communications）为基础，探索其在微型机器鱼中的应用。现有电液泵受电池与电子技术限制存在<b>动力不足</b>问题，是制约微型机器鱼实用化的两大难点之一（另一为机械结构）。</p>
+    <h2><span data-zh>项目背景</span><span data-en>Background</span></h2>
+    <p><span data-zh>课题组以"柔性电液泵"（一种仿生双向变量液压泵，发表于 Nature Communications）为基础，探索其在微型机器鱼中的应用。现有电液泵受电池与电子技术限制存在<b>动力不足</b>问题，是制约微型机器鱼实用化的两大难点之一（另一为机械结构）。</span><span data-en>The group builds on a "soft electro-hydraulic pump" (a biomimetic bidirectional variable hydraulic pump published in Nature Communications) for micro robotic fish. Limited by battery and electronics, the pump is <b>underpowered</b>—one of the two main barriers to practicality (the other being mechanical structure).</span></p>
   </section>
 
   <section class="dsec">
-    <h2>我的具体工作</h2>
+    <h2><span data-zh>我的具体工作</span><span data-en>What I Did</span></h2>
     <ul>
-      <li><b>驱动源改良：</b>调研大量文献后选定斯特林发动机作为替代驱动方案，从原理出发计算所需扭矩，调整各部件间距，解决部件间阻力与衔接难题，使驱动系统正常运转。</li>
-      <li><b>运动转换机构设计（核心创新）：</b>斯特林发动机输出的圆周运动平面与鱼翅摆动平面相互垂直，现有结构只能在同一平面内转换。自主设计出一套仅三个零件的机构，成功实现圆周运动 → 垂直上下摆动的转换。</li>
-      <li><b>机身骨架设计：</b>为加热/冷却气缸、输出飞轮、传动机构设计一体化支架，并迭代精简体积。</li>
-      <li><b>建模与样机：</b>用 CAD 建模、3D 打印制作等比例放大模型并测试。</li>
+      <li><span data-zh><b>驱动源改良：</b>调研大量文献后选定斯特林发动机作为替代驱动方案，从原理出发计算所需扭矩，调整各部件间距，解决部件间阻力与衔接难题，使驱动系统正常运转。</span><span data-en><b>Power source:</b> after a literature survey, chose a Stirling engine as an alternative driver; computed the required torque from first principles and tuned part spacing to overcome friction and coupling issues so the drive runs reliably.</span></li>
+      <li><span data-zh><b>运动转换机构设计（核心创新）：</b>斯特林发动机输出的圆周运动平面与鱼翅摆动平面相互垂直，现有结构只能在同一平面内转换。自主设计出一套仅三个零件的机构，成功实现圆周运动 → 垂直上下摆动的转换。</span><span data-en><b>Motion-conversion mechanism (key innovation):</b> the engine's rotation plane is perpendicular to the fin's oscillation plane, while existing mechanisms only convert within one plane. I designed a three-part mechanism that converts rotation into vertical up-and-down oscillation.</span></li>
+      <li><span data-zh><b>机身骨架设计：</b>为加热/冷却气缸、输出飞轮、传动机构设计一体化支架，并迭代精简体积。</span><span data-en><b>Body frame:</b> designed an integrated frame for the heating/cooling cylinders, output flywheel and transmission, iterating to reduce its size.</span></li>
+      <li><span data-zh><b>建模与样机：</b>用 CAD 建模、3D 打印制作等比例放大模型并测试。</span><span data-en><b>Modeling & prototype:</b> CAD modeling and 3D printing of a scaled prototype, followed by testing.</span></li>
     </ul>
   </section>
 
   <section class="dsec">
-    <h2>技术与工具</h2>
-    <p>CAD 建模、3D 打印、斯特林热力学循环分析、机构运动学、文献调研、电子学基础。</p>
-  </section>
-
-  <section class="dsec">
-    <h2>成果与亮点</h2>
+    <h2><span data-zh>成果与亮点</span><span data-en>Results & Highlights</span></h2>
     <ul>
-      <li>项目获<b>浙江大学暑期学生科研实践优秀展报奖</b>。</li>
-      <li>完成"斯特林驱动样机 + 自创运动转换机构 + 机身骨架"三大模块的设计—制造—测试闭环。</li>
-      <li>将课堂理论（CAD / 力学 / 热力学 / 电子学）首次落地到真实工程样机。</li>
+      <li><span data-zh>项目获<b>浙江大学暑期学生科研实践优秀展报奖</b>。</span><span data-en>Won the <b>ZJU Summer Research Best-poster Award</b>.</span></li>
+      <li><span data-zh>完成"斯特林驱动样机 + 自创运动转换机构 + 机身骨架"三大模块的设计—制造—测试闭环。</span><span data-en>Closed the design–build–test loop across three modules: Stirling drive prototype, the original motion-conversion mechanism, and the body frame.</span></li>
+      <li><span data-zh>将课堂理论（CAD / 力学 / 热力学 / 电子学）首次落地到真实工程样机。</span><span data-en>Turned classroom theory (CAD / mechanics / thermodynamics / electronics) into a real engineering prototype for the first time.</span></li>
     </ul>
   </section>
 
   <section class="dsec">
-    <h2>项目图片</h2>
+    <h2><span data-zh>项目图片</span><span data-en>Gallery</span></h2>
     <div class="gallery">
-      <figure><a href="img/a01-cad.jpg" target="_blank"><img src="img/a01-cad.jpg" alt="仿生翅膀传动结构 CAD"></a><figcaption>仿生翅膀 / 转摆传动机构 CAD 渲染图</figcaption></figure>
-      <figure><a href="img/a01-fish.jpg" target="_blank"><img src="img/a01-fish.jpg" alt="机器鱼模型照片"></a><figcaption>等比例机器鱼样机照片</figcaption></figure>
-      <figure><a href="img/a01-poster.jpg" target="_blank"><img src="img/a01-poster.jpg" alt="科研展报"></a><figcaption>获奖科研展报</figcaption></figure>
-      <figure><a href="img/a01-pump.jpg" target="_blank"><img src="img/a01-pump.jpg" alt="柔性电液泵原理图"></a><figcaption>柔性电液泵原理图（项目基础，源自 Nature Communications）</figcaption></figure>
+      <figure><a href="img/a01-transmission-cad.jpg" target="_blank"><img src="img/a01-transmission-cad.jpg" alt="transmission CAD"></a><figcaption><span data-zh>转摆传动机构 CAD（圆周转动 → 垂直摆动）</span><span data-en>Transmission-mechanism CAD (rotation → vertical oscillation)</span></figcaption></figure>
+      <figure><a href="img/a01-skeleton-cad.jpg" target="_blank"><img src="img/a01-skeleton-cad.jpg" alt="frame CAD"></a><figcaption><span data-zh>机器鱼机身骨架 / 支架 CAD</span><span data-en>Robotic-fish body-frame CAD</span></figcaption></figure>
+      <figure><a href="img/a01-stirling.jpg" target="_blank"><img src="img/a01-stirling.jpg" alt="Stirling prototype"></a><figcaption><span data-zh>斯特林驱动样机实物测试</span><span data-en>Stirling drive prototype under test</span></figcaption></figure>
+      <figure><a href="img/a01-poster.jpg" target="_blank"><img src="img/a01-poster.jpg" alt="poster"></a><figcaption><span data-zh>获奖科研展报</span><span data-en>Award-winning research poster</span></figcaption></figure>
     </div>
-    <p class="note" style="margin-top:12px">点击图片可查看大图。</p>
+    <p class="note" style="margin-top:12px"><span data-zh>点击图片可查看大图。</span><span data-en>Click an image to view full size.</span></p>
   </section>
 
-  <div class="dfoot">姚涵非 · <a href="../index.html">返回主页</a></div>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
 </main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
 </body>
 </html>

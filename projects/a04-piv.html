@@ -3,79 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PIV 粒子图像测速演示装置 | 姚涵非</title>
+<title>PIV 粒子图像测速演示装置 | 姚涵非 Hanfei Yao</title>
 <link rel="stylesheet" href="detail.css">
 </head>
 <body>
-<header class="dnav"><div class="dnav-in"><a class="back" href="../index.html">← 返回主页</a><span class="crumb">项目详情 · 机械设计与硬件开发</span></div></header>
+<header class="dnav"><div class="dnav-in">
+  <a class="back" href="../index.html"><span data-zh>← 返回主页</span><span data-en>← Back to home</span></a>
+  <span class="crumb"><span data-zh>项目详情 · 机械设计与硬件开发</span><span data-en>Project · Mechanical Design & Hardware</span></span>
+  <button class="dlang" id="dlangToggle">EN</button>
+</div></header>
 <main class="dwrap">
   <div class="dhero">
-    <h1>低成本便携式 PIV 粒子图像测速演示装置</h1>
+    <h1><span data-zh>低成本便携式 PIV 粒子图像测速演示装置</span><span data-en>Low-cost Portable PIV Flow-velocimetry Demonstrator</span></h1>
     <div class="dmeta">
-      <span class="chip">本科毕业设计 · ECE445 高级设计 · 2024 春</span>
-      <span class="chip k">负责整机机械系统</span>
-      <span class="chip">流体可视化</span><span class="chip">激光片光</span><span class="chip">CMOS 相机</span><span class="chip">树莓派 GUI</span>
+      <span class="chip"><span data-zh>本科毕业设计 · ECE445 高级设计 · 2024 春</span><span data-en>B.Eng. thesis · ECE445 Senior Design · Spring 2024</span></span>
+      <span class="chip k"><span data-zh>负责整机机械系统</span><span data-en>Owned the mechanical system</span></span>
+      <span class="chip"><span data-zh>流体可视化</span><span data-en>Flow visualization</span></span>
+      <span class="chip"><span data-zh>激光片光</span><span data-en>Laser light-sheet</span></span>
+      <span class="chip">CMOS · Raspberry Pi</span>
     </div>
-    <p class="dlede">设计并制作一台低成本、便携、可交互的 PIV 演示装置：用激光片光照亮流道中的示踪粒子、CMOS 相机采集、软件计算并实时可视化速度场，把原本昂贵复杂的 PIV 原理做成低年级学生也能上手的教学设备。我负责整机机械系统。</p>
+    <p class="dlede"><span data-zh>设计并制作一台低成本、便携、可交互的 PIV 演示装置：用激光片光照亮流道中的示踪粒子、CMOS 相机采集、软件计算并实时可视化速度场，把原本昂贵复杂的 PIV 原理做成低年级学生也能上手的教学设备。我负责整机机械系统。</span><span data-en>Designed and built a low-cost, portable, interactive PIV demonstrator: a laser light-sheet illuminates tracer particles in a channel, a CMOS camera captures them, and software computes and visualizes the velocity field in real time—turning expensive, complex PIV into a teaching device for junior students. I owned the whole mechanical system.</span></p>
   </div>
 
   <section class="dsec">
-    <h2>项目背景</h2>
-    <p>PIV（粒子图像测速）是实验流体力学测速的主流方法，但专业设备<b>复杂、昂贵、对环境要求高</b>，低年级学生难以理解其原理。团队目标是做一台低成本、易维护、便携且带交互功能的装置，直观演示 PIV 工作原理。</p>
+    <h2><span data-zh>项目背景</span><span data-en>Background</span></h2>
+    <p><span data-zh>PIV（粒子图像测速）是实验流体力学测速的主流方法，但专业设备<b>复杂、昂贵、对环境要求高</b>，低年级学生难以理解其原理。团队目标是做一台低成本、易维护、便携且带交互功能的装置，直观演示 PIV 工作原理。</span><span data-en>PIV (Particle Image Velocimetry) is a mainstream method in experimental fluid mechanics, but professional rigs are <b>complex, expensive and environment-sensitive</b>, making the principle hard for junior students to grasp. The team's goal: a low-cost, low-maintenance, portable, interactive device that demonstrates PIV intuitively.</span></p>
   </section>
 
   <section class="dsec">
-    <h2>系统组成（多子系统集成）</h2>
+    <h2><span data-zh>系统组成（多子系统集成）</span><span data-en>System (multi-subsystem integration)</span></h2>
     <ul>
-      <li><b>流道子系统：</b>鼓风机驱动空气循环并携带示踪粒子，含调速装置与尼龙滤网。</li>
-      <li><b>照明子系统：</b>激光经柱面镜整形成二维片光，照亮流场使粒子散射成像。</li>
-      <li><b>图像采集：</b>CMOS 相机在两个时刻多重曝光采集粒子位置。</li>
-      <li><b>交互 GUI：</b>树莓派 + 7 吋触摸屏，实时显示粒子图像、速度矢量与流量，支持师生交互控制。</li>
+      <li><span data-zh><b>流道子系统：</b>鼓风机驱动空气循环并携带示踪粒子，含调速装置与滤网。</span><span data-en><b>Flow subsystem:</b> a blower circulates air carrying tracer particles, with speed control and a filter mesh.</span></li>
+      <li><span data-zh><b>照明子系统：</b>激光经柱面镜整形成二维片光，照亮流场使粒子散射成像。</span><span data-en><b>Illumination:</b> a laser is shaped by a cylindrical lens into a 2D light-sheet that lights the flow so particles scatter light for imaging.</span></li>
+      <li><span data-zh><b>图像采集：</b>CMOS 相机在两个时刻多重曝光采集粒子位置。</span><span data-en><b>Image capture:</b> a CMOS camera multi-exposes particle positions at two instants.</span></li>
+      <li><span data-zh><b>交互 GUI：</b>树莓派 + 7 吋触摸屏，实时显示粒子图像、速度矢量与流量。</span><span data-en><b>Interactive GUI:</b> Raspberry Pi + 7" touchscreen showing particle images, velocity vectors and flow rate in real time.</span></li>
     </ul>
   </section>
 
   <section class="dsec">
-    <h2>我的具体工作（负责机械系统）</h2>
+    <h2><span data-zh>我的具体工作（负责机械系统）</span><span data-en>What I Did (mechanical system)</span></h2>
     <ul>
-      <li><b>整机结构设计：</b>设计铝型材支架作为装置主体框架，承载激光、相机、流道、屏幕等子系统并保证相对位置精度与可调性。</li>
-      <li><b>外壳与布局：</b>设计木箱外壳集成走线与防护；协调各子系统在有限空间内的安装与<b>光机对位</b>（相机视场对准激光片光照亮的流道截面）。</li>
-      <li><b>测试：</b>采集沙、水、泡沫球等不同介质中的粒子运动序列并生成轨迹 / 速度成图。</li>
+      <li><span data-zh><b>整机结构设计：</b>设计铝型材支架作为装置主体框架，承载激光、相机、流道、屏幕等子系统并保证相对位置精度与可调性。</span><span data-en><b>Structure:</b> designed the aluminum-profile frame carrying the laser, camera, channel and screen, ensuring relative-position accuracy and adjustability.</span></li>
+      <li><span data-zh><b>外壳与布局：</b>设计木箱外壳集成走线与防护；协调各子系统在有限空间内的安装与<b>光机对位</b>（相机视场对准激光片光照亮的流道截面）。</span><span data-en><b>Housing & layout:</b> designed a wooden enclosure for wiring and protection; coordinated subsystem placement in a small space and the <b>opto-mechanical alignment</b> (camera field aligned to the laser-lit channel section).</span></li>
+      <li><span data-zh><b>测试：</b>采集沙、水、泡沫球等不同介质中的粒子运动序列并生成轨迹 / 速度成图。</span><span data-en><b>Testing:</b> captured particle-motion sequences in sand, water and foam balls, and produced trajectory / velocity plots.</span></li>
     </ul>
   </section>
 
   <section class="dsec">
-    <h2>指标与成果</h2>
+    <h2><span data-zh>指标与成果</span><span data-en>Targets & Results</span></h2>
     <ul>
-      <li>高层指标：速度<b>幅值误差 &lt; 20%</b>、<b>方向偏差 &lt; 20°</b>（对比专业 PIV 结果）。</li>
-      <li>完成从需求 → 多子系统设计 → 物理搭建 → 测试验证 → 设计文档 / 答辩的完整 Senior Design 闭环。</li>
-      <li>集成机械、光学、成像、嵌入式四类子系统于一台便携低成本装置，实现实时速度场可视化。</li>
+      <li><span data-zh>高层指标：速度<b>幅值误差 &lt; 20%</b>、<b>方向偏差 &lt; 20°</b>（对比专业 PIV 结果）。</span><span data-en>High-level targets: velocity <b>magnitude error &lt; 20%</b> and <b>direction error &lt; 20°</b> vs. professional PIV.</span></li>
+      <li><span data-zh>完成从需求 → 多子系统设计 → 物理搭建 → 测试验证 → 设计文档 / 答辩的完整 Senior Design 闭环。</span><span data-en>Completed the full Senior-Design loop: requirements → multi-subsystem design → build → verification → documentation / defense.</span></li>
+      <li><span data-zh>集成机械、光学、成像、嵌入式四类子系统于一台便携低成本装置，实现实时速度场可视化。</span><span data-en>Integrated mechanical, optical, imaging and embedded subsystems into one portable, low-cost device with real-time velocity-field visualization.</span></li>
     </ul>
   </section>
 
   <section class="dsec">
-    <h2>装置与测试照片</h2>
+    <h2><span data-zh>原理、装置与实拍</span><span data-en>Principle, Device & Photos</span></h2>
     <div class="gallery">
-      <figure><a href="img/a04-overview.jpg" target="_blank"><img src="img/a04-overview.jpg" alt="设计总览"></a><figcaption>整机设计总览</figcaption></figure>
-      <figure><a href="img/a04-rig.jpg" target="_blank"><img src="img/a04-rig.jpg" alt="PIV 流道实验台"></a><figcaption>PIV 流道实验台</figcaption></figure>
-      <figure><a href="img/a04-channel.jpg" target="_blank"><img src="img/a04-channel.jpg" alt="透明流道特写"></a><figcaption>透明流道特写</figcaption></figure>
-      <figure><a href="img/a04-blower.jpg" target="_blank"><img src="img/a04-blower.jpg" alt="鼓风机"></a><figcaption>流道鼓风机</figcaption></figure>
-      <figure><a href="img/a04-mesh.jpg" target="_blank"><img src="img/a04-mesh.jpg" alt="尼龙滤网"></a><figcaption>尼龙滤网</figcaption></figure>
-      <figure><a href="img/a04-speed.jpg" target="_blank"><img src="img/a04-speed.jpg" alt="调速装置"></a><figcaption>风速调速装置</figcaption></figure>
-      <figure><a href="img/a04-test.jpg" target="_blank"><img src="img/a04-test.jpg" alt="测试现场"></a><figcaption>装置测试现场</figcaption></figure>
+      <figure><a href="img/a04-overview.jpg" target="_blank"><img src="img/a04-overview.jpg" alt="overview"></a><figcaption><span data-zh>整机设计总览（激光 / 相机 / 流道 / 树莓派 / 触摸屏）</span><span data-en>Overall design (laser / camera / channel / Raspberry Pi / touchscreen)</span></figcaption></figure>
+      <figure><a href="img/a04-principle.jpg" target="_blank"><img src="img/a04-principle.jpg" alt="principle"></a><figcaption><span data-zh>PIV 测速原理示意（片光 + 双曝光 + 互相关）</span><span data-en>PIV principle (light-sheet + double exposure + cross-correlation)</span></figcaption></figure>
+      <figure><a href="img/a04-laser.jpg" target="_blank"><img src="img/a04-laser.jpg" alt="laser"></a><figcaption><span data-zh>激光片光照亮流场（实拍）</span><span data-en>Laser light-sheet illuminating the flow (photo)</span></figcaption></figure>
+      <figure><a href="img/a04-frame.jpg" target="_blank"><img src="img/a04-frame.jpg" alt="frame"></a><figcaption><span data-zh>装置机械框架（含流道与电机）</span><span data-en>Mechanical frame (channel and motor)</span></figcaption></figure>
+      <figure><a href="img/a04-built.jpg" target="_blank"><img src="img/a04-built.jpg" alt="built device"></a><figcaption><span data-zh>搭建完成的装置实物</span><span data-en>The assembled device</span></figcaption></figure>
+      <figure><a href="img/a04-camera.jpg" target="_blank"><img src="img/a04-camera.jpg" alt="camera"></a><figcaption><span data-zh>图像采集用 CMOS 相机</span><span data-en>CMOS camera for image capture</span></figcaption></figure>
     </div>
   </section>
 
   <section class="dsec">
-    <h2>测速结果成图（多介质）</h2>
+    <h2><span data-zh>测速结果成图（多介质）</span><span data-en>Velocimetry Results (multiple media)</span></h2>
     <div class="gallery">
-      <figure><a href="img/a04-traj-water.jpg" target="_blank"><img src="img/a04-traj-water.jpg" alt="水中轨迹"></a><figcaption>水中粒子运动轨迹 / 速度场</figcaption></figure>
-      <figure><a href="img/a04-traj-sand.jpg" target="_blank"><img src="img/a04-traj-sand.jpg" alt="沙中轨迹"></a><figcaption>沙中粒子运动轨迹 / 速度场</figcaption></figure>
-      <figure><a href="img/a04-traj-foam.jpg" target="_blank"><img src="img/a04-traj-foam.jpg" alt="泡沫球轨迹"></a><figcaption>泡沫球运动轨迹 / 速度场</figcaption></figure>
+      <figure><a href="img/a04-result.jpg" target="_blank"><img src="img/a04-result.jpg" alt="velocity field"></a><figcaption><span data-zh>互相关计算得到的速度场结果</span><span data-en>Velocity field from cross-correlation</span></figcaption></figure>
+      <figure><a href="img/a04-traj-water.jpg" target="_blank"><img src="img/a04-traj-water.jpg" alt="water"></a><figcaption><span data-zh>水中粒子运动序列</span><span data-en>Particle motion in water</span></figcaption></figure>
+      <figure><a href="img/a04-traj-sand.jpg" target="_blank"><img src="img/a04-traj-sand.jpg" alt="sand"></a><figcaption><span data-zh>沙中粒子运动序列</span><span data-en>Particle motion in sand</span></figcaption></figure>
     </div>
-    <p class="note" style="margin-top:12px">点击图片可查看大图。</p>
+    <p class="note" style="margin-top:12px"><span data-zh>点击图片可查看大图。</span><span data-en>Click an image to view full size.</span></p>
   </section>
 
-  <div class="dfoot">姚涵非 · <a href="../index.html">返回主页</a></div>
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
 </main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
 </body>
 </html>
