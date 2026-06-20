@@ -27,7 +27,7 @@
 
   <section class="dsec">
     <h2><span data-zh>项目背景</span><span data-en>Background</span></h2>
-    <p><span data-zh>PIV（粒子图像测速）是实验流体力学测速的主流方法，但专业设备<b>复杂、昂贵、对环境要求高</b>，低年级学生难以理解其原理。团队目标是做一台低成本、易维护、便携且带交互功能的装置，直观演示 PIV 工作原理。</span><span data-en>PIV (Particle Image Velocimetry) is a mainstream method in experimental fluid mechanics, but professional rigs are <b>complex, expensive and environment-sensitive</b>, making the principle hard for junior students to grasp. The team's goal: a low-cost, low-maintenance, portable, interactive device that demonstrates PIV intuitively.</span></p>
+    <p><span data-zh>PIV（粒子图像测速）是实验流体力学测速的主流方法，但专业设备<b>复杂、昂贵、对环境要求高</b>，低年级学生难以理解其原理。团队目标是做一台低成本、易维护、便携且带交互功能的装置，直观演示 PIV 工作原理。</span><span data-en>PIV is a mainstream method in experimental fluid mechanics, but professional rigs are <b>complex, expensive and environment-sensitive</b>, making the principle hard for junior students to grasp. The team's goal: a low-cost, low-maintenance, portable, interactive device that demonstrates PIV intuitively.</span></p>
   </section>
 
   <section class="dsec">
@@ -44,7 +44,7 @@
     <h2><span data-zh>我的具体工作（负责机械系统）</span><span data-en>What I Did (mechanical system)</span></h2>
     <ul>
       <li><span data-zh><b>整机结构设计：</b>设计铝型材支架作为装置主体框架，承载激光、相机、流道、屏幕等子系统并保证相对位置精度与可调性。</span><span data-en><b>Structure:</b> designed the aluminum-profile frame carrying the laser, camera, channel and screen, ensuring relative-position accuracy and adjustability.</span></li>
-      <li><span data-zh><b>外壳与布局：</b>设计木箱外壳集成走线与防护；协调各子系统在有限空间内的安装与<b>光机对位</b>（相机视场对准激光片光照亮的流道截面）。</span><span data-en><b>Housing & layout:</b> designed a wooden enclosure for wiring and protection; coordinated subsystem placement in a small space and the <b>opto-mechanical alignment</b> (camera field aligned to the laser-lit channel section).</span></li>
+      <li><span data-zh><b>外壳与布局：</b>设计木箱外壳集成走线与防护；协调各子系统在有限空间内的安装与<b>光机对位</b>（相机视场对准激光片光照亮的流道截面）。</span><span data-en><b>Housing & layout:</b> designed a wooden enclosure for wiring and protection; coordinated subsystem placement and the <b>opto-mechanical alignment</b> (camera field aligned to the laser-lit channel section).</span></li>
       <li><span data-zh><b>测试：</b>采集沙、水、泡沫球等不同介质中的粒子运动序列并生成轨迹 / 速度成图。</span><span data-en><b>Testing:</b> captured particle-motion sequences in sand, water and foam balls, and produced trajectory / velocity plots.</span></li>
     </ul>
   </section>
@@ -82,4 +82,21 @@
   </section>
 
   <section class="dsec">
-    <h2><span data-zh>测速结果成图（多介质）</span><span data-en>Velocimetry Result
+    <h2><span data-zh>测速结果成图（多介质）</span><span data-en>Velocimetry Results (multiple media)</span></h2>
+    <div class="gallery">
+      <figure><a href="img/a04-result.jpg" target="_blank"><img src="img/a04-result.jpg" alt="velocity field"></a><figcaption><span data-zh>互相关计算得到的速度场结果</span><span data-en>Velocity field from cross-correlation</span></figcaption></figure>
+      <figure><a href="img/a04-particles.jpg" target="_blank"><img src="img/a04-particles.jpg" alt="raw particles"></a><figcaption><span data-zh>原始粒子图像（算法输入）</span><span data-en>Raw particle image (algorithm input)</span></figcaption></figure>
+      <figure><a href="img/a04-traj-water.jpg" target="_blank"><img src="img/a04-traj-water.jpg" alt="water"></a><figcaption><span data-zh>水中粒子运动序列</span><span data-en>Particle motion in water</span></figcaption></figure>
+      <figure><a href="img/a04-traj-sand.jpg" target="_blank"><img src="img/a04-traj-sand.jpg" alt="sand"></a><figcaption><span data-zh>沙中粒子运动序列</span><span data-en>Particle motion in sand</span></figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:12px"><span data-zh>点击图片可查看大图。</span><span data-en>Click an image to view full size.</span></p>
+  </section>
+
+  <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
+</main>
+<script>
+const b=document.getElementById('dlangToggle'),h=document.documentElement;
+b.addEventListener('click',()=>{const en=h.getAttribute('lang')==='en';h.setAttribute('lang',en?'zh':'en');b.textContent=en?'EN':'中';});
+</script>
+</body>
+</html>
