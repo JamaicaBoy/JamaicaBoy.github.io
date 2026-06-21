@@ -80,6 +80,16 @@
   .mini-label{font-size:12.5px;font-weight:700;color:var(--accent);letter-spacing:.6px;text-transform:uppercase;margin:20px 0 12px;padding-left:11px;border-left:3px solid var(--accent)}
   .mini-label:first-of-type{margin-top:4px}
   .mini-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:8px}
+  #more-projects{display:flex;flex-direction:column}
+  #more-projects .sec-head{order:0}
+  #more-projects .cat-ai-label{order:1}
+  #more-projects .cat-ai-grid{order:2}
+  #more-projects .cat-mech-label{order:3}
+  #more-projects .cat-mech-grid{order:4}
+  #more-projects .cat-vision-label{order:5}
+  #more-projects .cat-vision-grid{order:6}
+  #more-projects .cat-platform-label{order:7}
+  #more-projects .cat-platform-grid{order:8}
   .mini{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column}
   .mini .tag{display:inline-block;align-self:flex-start;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:5px;margin-bottom:8px;letter-spacing:.3px}
   .mini h4{font-size:15px;margin-bottom:6px;line-height:1.4}
@@ -145,13 +155,13 @@
     <div class="hero-text">
       <h1><span data-zh>姚涵非</span><span data-en>Hanfei Yao</span></h1>
       <div class="hero-role">
-        <span data-zh>智能制造 · 工艺优化算法 · 质量预测 — 研发岗求职</span>
-        <span data-en>Intelligent Manufacturing · Process Optimization · Quality Prediction — seeking R&D roles</span>
+        <span data-zh>智能制造 · 算法与数据建模 · 工艺 / 质量优化 — 研发与工程技术岗位</span>
+        <span data-en>Intelligent Manufacturing · AI &amp; Data Modeling · Process / Quality Optimization — R&amp;D and Engineering Roles</span>
       </div>
       <div class="hero-bio"><span data-zh>中共党员 · 2002.07 出生</span><span data-en>CPC member · born Jul 2002</span></div>
       <p class="tagline">
-        <span data-zh>浙江大学机械工程硕士在读（保研），依托流体动力基础件与机电系统全国重点实验室。我用 <b>AI 与数据建模</b>解决智能制造中的实际问题——让工厂在生产前就能<b>预测产品质量</b>、用更少的试验<b>找到最优工艺</b>。成果已在真实注塑产线上验证，并已发表中文核心论文、申请国家发明专利（另有 2 篇一作 SCI 在投）。</span>
-        <span data-en>Master's student (recommended admission) in Mechanical Engineering at Zhejiang University, affiliated with the State Key Laboratory of Fluid Power and Mechatronic Systems. I use <b>AI and data modeling</b> to solve real problems in smart manufacturing—<b>predicting product quality before production</b> and <b>finding optimal process settings with fewer trials</b>—validated on real production lines, with published CSCD-core papers, filed national patents, and 2 first-author SCI manuscripts under review.</span>
+        <span data-zh>浙江大学机械工程硕士在读（保研），依托流体动力基础件与机电系统全国重点实验室。我以机械与制造场景为根基，用 <b>AI 与数据建模</b>解决实际问题——让工厂在生产前就能<b>预测产品质量</b>、用更少的试验<b>找到最优工艺</b>，并用本地大模型辅助工艺调参。除注塑研究外，我还带队完成了基于 YOLOv5 的垃圾分拣原型，并设计验证了机器鱼传动机构、PIV 测速装置等机械项目。相关成果已在真实产线上验证，并已发表中文核心论文、申请国家发明专利（另有 2 篇一作 SCI 在投）。</span>
+        <span data-en>Master's student (recommended admission) in Mechanical Engineering at Zhejiang University, affiliated with the State Key Laboratory of Fluid Power and Mechatronic Systems. Grounded in mechanical and manufacturing systems, I use <b>AI and data modeling</b> to solve practical problems—<b>predicting product quality before production</b>, <b>finding optimal process settings with fewer trials</b>, and assisting process tuning with a local LLM. Beyond injection-molding research, I led the development of a YOLOv5 waste-sorting prototype and designed and validated mechanical projects including a robotic-fish transmission and a PIV demonstrator. My work has been validated on real production lines, with published CSCD-core papers, filed national patents, and 2 first-author SCI manuscripts under review.</span>
       </p>
       <div class="hero-meta">
         <span class="pill"><span data-zh>中文核心 2 篇（学生排一，已发表）</span><span data-en>2 CSCD-core papers (first student author, published)</span></span>
@@ -172,8 +182,8 @@
   <section id="about">
     <div class="sec-head"><h2><span data-zh>关于我</span><span data-en>About</span></h2></div>
     <p class="lead">
-      <span data-zh>我的研究围绕制造业的一个共性痛点：<span class="hl">怎样少花实验、少出废品，又快又准地把产品做好</span>。围绕这个目标我做了三件事——让工厂在开机生产前就能预测成品质量、用很少几次试验自动优化工艺参数、以及用大模型辅助工艺调参。这些方法都做到了能在仿真和真实产线上跑通、能开源、能写成论文。我希望在企业研发岗位继续把前沿方法变成真正可落地的产品价值。</span>
-      <span data-en>My research targets a pain point shared across manufacturing: <span class="hl">how to make good products quickly and accurately while spending fewer experiments and producing less scrap</span>. Toward this I have done three things—predicting product quality before production starts, automatically optimizing process parameters with very few trials, and using LLMs to assist process tuning. Each method runs on both simulation and real production lines, is open-sourced, and is published. I want to keep turning frontier methods into real, deployable product value in an industrial R&D role.</span>
+      <span data-zh>我的研究围绕制造业的一个共性痛点：<span class="hl">怎样少花实验、少出废品，又快又准地把产品做好</span>。围绕这个目标，我做了生产前质量预测、少样本工艺参数优化和基于 819 篇文献知识库的大模型辅助调参，这些方法都在仿真或真实注塑产线上完成了验证。研究之外，我带队做出了“YOLOv5 视觉识别—气动分拣”的完整样机；在机械方向，也从零设计并验证过机器鱼传动机构、PIV 测速演示装置、四足步行器和热压螺母植入机。此外，我还参与过红外热成像缺陷检测、工业时序预测与云边协同监测等团队项目。这些经历让我既熟悉数据处理、模型训练和实验分析，也真正做过机构设计、加工装配与整机调试。</span>
+      <span data-en>My research targets a pain point shared across manufacturing: <span class="hl">how to make good products quickly and accurately while running fewer experiments and producing less scrap</span>. Toward this goal, I have developed pre-production quality prediction, sample-efficient process optimization, and LLM-assisted tuning backed by a knowledge base of 819 papers, with each method validated in simulation or on real injection-molding lines. Beyond this core research, I led the development of a complete YOLOv5 vision-to-pneumatic waste-sorting prototype. On the mechanical side, I designed and validated a robotic-fish transmission, PIV demonstrator, quadruped walker, and heat-staking nut insertion machine from the ground up. I have also contributed to team projects in infrared defect detection, industrial time-series forecasting, and cloud–edge process monitoring. These experiences gave me hands-on practice not only in data processing, model training, and experimental analysis, but also in mechanism design, fabrication, assembly, and system debugging.</span>
     </p>
     <div class="metrics">
       <div class="metric"><div class="big">36%↓</div><div class="lab"><span data-zh>生产前质量预测误差降低</span><span data-en>lower quality-prediction error</span></div></div>
@@ -263,13 +273,19 @@
       <h2><span data-zh>更多项目</span><span data-en>Selected Projects</span></h2>
     </div>
 
-    <div class="mini-label"><span data-zh>工业 AI 与质量预测</span><span data-en>Industrial AI & Quality Prediction</span></div>
-    <div class="mini-grid">
+    <div class="mini-label cat-ai-label"><span data-zh>工业 AI 与质量预测</span><span data-en>Industrial AI & Quality Prediction</span></div>
+    <div class="mini-grid cat-ai-grid">
       <div class="mini">
         <span class="tag"><span data-zh>参与</span><span data-en>contributor</span></span>
         <h4><span data-zh>多阶段双注意力 LSTM 质量预测（PDA-LSTM）</span><span data-en>Multi-stage Dual-attention LSTM (PDA-LSTM)</span></h4>
         <p><span data-zh>面向注塑这类分多个阶段进行的生产过程的质量预测方法：先把生产过程按工序阶段切分，再用两层注意力机制自动定位对最终质量影响最大的时段和变量，在提升预测精度的同时让预测结果可解释、可追溯。</span><span data-en>A quality-prediction method for multi-stage processes like injection molding: the process is first split into stages, then two attention layers locate the time windows and variables that matter most to final quality—improving accuracy while keeping predictions interpretable and traceable.</span></p>
         <a class="mini-more" href="projects/c12-pda-lstm.html"><span data-zh>查看项目详情 →</span><span data-en>View details →</span></a>
+      </div>
+      <div class="mini">
+        <span class="tag"><span data-zh>参与</span><span data-en>contributor</span></span>
+        <h4><span data-zh>注塑工艺参数自学习优化（IGAO）</span><span data-en>Self-learning Parameter Optimization (IGAO)</span></h4>
+        <p><span data-zh>一种逐批自学习的工艺优化思路：每生产一批，就用梯度近似估计参数该往哪个方向调、并自适应调整步长，无需精确的物理模型即可一批批逼近目标质量。这也是我后续多目标优化工作的重要思想来源之一。</span><span data-en>A batch-by-batch self-learning scheme: each batch uses gradient approximation to decide the tuning direction with an adaptive step size, approaching the target without an exact physics model—an important inspiration for my later multi-objective work.</span></p>
+        <a class="mini-more" href="projects/c30-igao.html"><span data-zh>查看项目详情 →</span><span data-en>View details →</span></a>
       </div>
       <div class="mini">
         <span class="tag"><span data-zh>参与</span><span data-en>contributor</span></span>
@@ -283,16 +299,16 @@
         <p><span data-zh>把"将产品调到目标重量"这一连续优化问题巧妙地转化为一个分类问题：用支持向量分类（SVC）判断参数是否合格、配合粒子群优化（PSO）搜索，在实验样本很少的情况下也能高效找到达标的工艺参数。</span><span data-en>Reframes "tune the part to a target weight" from continuous optimization into classification: a support-vector classifier judges whether settings are acceptable while particle-swarm optimization searches—efficient even with very few experimental samples.</span></p>
         <a class="mini-more" href="projects/c33-weight-classification.html"><span data-zh>查看项目详情 →</span><span data-en>View details →</span></a>
       </div>
-      <div class="mini">
-        <span class="tag"><span data-zh>参与</span><span data-en>contributor</span></span>
-        <h4><span data-zh>注塑工艺参数自学习优化（IGAO）</span><span data-en>Self-learning Parameter Optimization (IGAO)</span></h4>
-        <p><span data-zh>一种逐批自学习的工艺优化思路：每生产一批，就用梯度近似估计参数该往哪个方向调、并自适应调整步长，无需精确的物理模型即可一批批逼近目标质量。这也是我后续多目标优化工作的重要思想来源之一。</span><span data-en>A batch-by-batch self-learning scheme: each batch uses gradient approximation to decide the tuning direction with an adaptive step size, approaching the target without an exact physics model—an important inspiration for my later multi-objective work.</span></p>
-        <a class="mini-more" href="projects/c30-igao.html"><span data-zh>查看项目详情 →</span><span data-en>View details →</span></a>
-      </div>
     </div>
 
-    <div class="mini-label"><span data-zh>机器视觉与 AI 质检</span><span data-en>Machine Vision & AI Inspection</span></div>
-    <div class="mini-grid">
+    <div class="mini-label cat-vision-label"><span data-zh>机器视觉与 AI 质检</span><span data-en>Machine Vision & AI Inspection</span></div>
+    <div class="mini-grid cat-vision-grid">
+      <div class="mini">
+        <span class="tag"><span data-zh>负责人</span><span data-en>project lead</span></span>
+        <h4><span data-zh>机器学习智能垃圾分拣系统</span><span data-en>ML-based Smart Waste-sorting System</span></h4>
+        <p><span data-zh>作为校级科研项目负责人，带跨学科小队做了一套自动垃圾分拣原型：用 YOLOv5 视觉识别瓶罐种类，再由电磁阀气动喷嘴按时序把目标吹入对应料箱，完整打通"感知—决策—执行"的整机闭环。</span><span data-en>As project lead of a cross-disciplinary team, built an automatic waste-sorting prototype: YOLOv5 recognizes bottle/can types and timed solenoid air-jets blow each item into the right bin—closing the full perception–decision–actuation loop.</span></p>
+        <a class="mini-more" href="projects/a03-waste-sorting.html"><span data-zh>查看项目详情（含视频）→</span><span data-en>View details (video) →</span></a>
+      </div>
       <div class="mini">
         <span class="tag"><span data-zh>参与 · 已发表</span><span data-en>contributor · published</span></span>
         <h4><span data-zh>红外热成像内部缺陷检测（DAE-SWnet）</span><span data-en>Infrared Internal-defect Detection (DAE-SWnet)</span></h4>
@@ -305,16 +321,10 @@
         <p><span data-zh>用红外相机拍下注塑件的表面温度场图像，结合图像分割与卷积神经网络（CNN），不破坏产品就能预测其质量（即"软测量"），并通过交叉验证保证预测的可靠性。</span><span data-en>Captures the surface temperature field of molded parts with an infrared camera, then combines image segmentation and a CNN to predict quality non-destructively (soft sensing), validated by cross-validation.</span></p>
         <a class="mini-more" href="projects/c11-ir-cnn.html"><span data-zh>查看项目详情 →</span><span data-en>View details →</span></a>
       </div>
-      <div class="mini">
-        <span class="tag"><span data-zh>负责人</span><span data-en>project lead</span></span>
-        <h4><span data-zh>机器学习智能垃圾分拣系统</span><span data-en>ML-based Smart Waste-sorting System</span></h4>
-        <p><span data-zh>作为校级科研项目负责人，带跨学科小队做了一套自动垃圾分拣原型：用 YOLOv5 视觉识别瓶罐种类，再由电磁阀气动喷嘴按时序把目标吹入对应料箱，完整打通"感知—决策—执行"的整机闭环。</span><span data-en>As project lead of a cross-disciplinary team, built an automatic waste-sorting prototype: YOLOv5 recognizes bottle/can types and timed solenoid air-jets blow each item into the right bin—closing the full perception–decision–actuation loop.</span></p>
-        <a class="mini-more" href="projects/a03-waste-sorting.html"><span data-zh>查看项目详情（含视频）→</span><span data-en>View details (video) →</span></a>
-      </div>
     </div>
 
-    <div class="mini-label"><span data-zh>工业软件平台与技术综述</span><span data-en>Industrial Platforms & Technical Review</span></div>
-    <div class="mini-grid">
+    <div class="mini-label cat-platform-label"><span data-zh>工业软件平台与技术综述</span><span data-en>Industrial Platforms & Technical Review</span></div>
+    <div class="mini-grid cat-platform-grid">
       <div class="mini">
         <span class="tag"><span data-zh>参与</span><span data-en>contributor</span></span>
         <h4><span data-zh>云原生工业过程监测平台（Kube-IPM）</span><span data-en>Cloud-native Process-monitoring Platform (Kube-IPM)</span></h4>
@@ -329,8 +339,8 @@
       </div>
     </div>
 
-    <div class="mini-label"><span data-zh>机械设计与硬件开发</span><span data-en>Mechanical Design & Hardware</span></div>
-    <div class="mini-grid">
+    <div class="mini-label cat-mech-label"><span data-zh>机械设计与硬件开发</span><span data-en>Mechanical Design & Hardware</span></div>
+    <div class="mini-grid cat-mech-grid">
       <div class="mini">
         <span class="tag"><span data-zh>获校级展报奖</span><span data-en>best-poster award</span></span>
         <h4><span data-zh>仿生机器鱼传动机构</span><span data-en>Biomimetic Robotic-fish Transmission</span></h4>
