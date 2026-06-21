@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>生产前产品质量智能预测（CSPM-Net） | 姚涵非 Hanfei Yao</title>
+<title>生产前产品质量智能预测 CSPM-Net | 姚涵非 Hanfei Yao</title>
 <link rel="stylesheet" href="detail.css">
 </head>
 <body>
@@ -15,13 +15,50 @@
 <main class="dwrap">
   <div class="dhero">
     <h1><span data-zh>生产前产品质量智能预测（CSPM-Net）</span><span data-en>Pre-production Quality Prediction (CSPM-Net)</span></h1>
-    <div class="dmeta"><span class="chip k"><span data-zh>第一作者 · 本人主导</span><span data-en>First author · led by me</span></span><span class="chip"><span data-zh>一作 SCI · AEI (IF 9.9) 审稿中</span><span data-en>First-author SCI · AEI (IF 9.9), under review</span></span><span class="chip"><span data-zh>国家发明专利 · 已受理</span><span data-en>National patent · accepted</span></span><span class="chip"><span data-zh>代表性工作</span><span data-en>Flagship</span></span></div>
-    <p class="dlede"><span data-zh>针对“开机前只有工艺参数、没有当前批次传感器数据时如何预测产品质量”的难题，提出跨模态阶段感知过程记忆网络 CSPM-Net：把历史批次的丰富传感器知识压缩成“可被参数查询的记忆表示”，新批次仅凭参数设定即可检索相关传感器派生知识做生产前(pre-cycle)质量预测；PC 数据集透光率/重量 RMSE 较最强基线分别降 36.3% / 22.1%，PMMA 数据集进一步验证一致提升。</span><span data-en>For the problem of predicting quality before startup—when only the planned parameters exist and current-cycle sensor data is unavailable—CSPM-Net (a cross-modal, stage-aware process-memory network) compresses rich historical sensor knowledge into a parameter-queryable memory, so a new batch can retrieve relevant sensor-derived knowledge for pre-cycle quality prediction; on PC datasets it cuts transmittance/weight RMSE by 36.3% / 22.1% vs. the strongest baseline, confirmed on PMMA.</span></p>
+    <div class="dmeta">
+      <span class="chip k"><span data-zh>第一作者 · 本人主导</span><span data-en>First author · led by me</span></span>
+      <span class="chip"><span data-zh>一作 SCI · AEI (IF 9.9) 审稿中</span><span data-en>First-author SCI · AEI (IF 9.9), under review</span></span>
+      <span class="chip"><span data-zh>国家发明专利 · 已受理</span><span data-en>National patent · accepted</span></span>
+      <span class="chip"><span data-zh>代表性工作</span><span data-en>Flagship</span></span>
+    </div>
+    <p class="dlede"><span data-zh>针对"开机前只有工艺参数、没有当前批次传感器数据时如何预测产品质量"的难题，提出跨模态阶段感知过程记忆网络 CSPM-Net：把历史批次丰富的传感器知识压缩成"可被参数查询的过程记忆"，再用<b>阶段分割 + 时序注意力 + 跨模态交叉注意力机制</b>，让新批次仅凭参数设定就能检索相关历史经验做生产前(pre-cycle)质量预测；在 PC 数据集上透光率/重量 RMSE 较最强基线分别降 36.3% / 22.1%。</span><span data-en>For predicting quality before startup—when only parameters exist and current-cycle sensor data is unavailable—CSPM-Net (cross-modal, stage-aware process-memory network) compresses rich historical sensor knowledge into a parameter-queryable process memory and uses <b>stage segmentation + temporal attention + cross-modal cross-attention</b> so a new batch can retrieve relevant history for pre-cycle prediction; on PC it cuts transmittance/weight RMSE by 36.3% / 22.1% vs. the strongest baseline.</span></p>
   </div>
-  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>多相批次制造中质检存在大时延、无法实时反馈；开机前缺当前周期传感器数据，只能依靠历史数据提前预测质量。</span><span data-en>In multiphase batch manufacturing, inspection lags and gives no real-time feedback; before startup there is no current-cycle sensor data, so prediction must rely on historical data.</span></p></section>
-  <section class="dsec"><h2><span data-zh>方法 / 我的工作</span><span data-en>Method / My Work</span></h2><ul><li><span data-zh>把历史批次的传感器知识压缩为“可被参数查询”的过程记忆表示。</span><span data-en>Compress historical sensor knowledge into a parameter-queryable process-memory representation.</span></li><li><span data-zh>用动态规划做工艺阶段分段，区分不同阶段的过程模式。</span><span data-en>Segment process phases via dynamic programming to separate per-stage patterns.</span></li><li><span data-zh>用时序注意力 + 交叉注意力实现“仅凭参数”的开机前质量预测。</span><span data-en>Use temporal + cross attention for parameter-only, pre-cycle quality prediction.</span></li></ul></section>
-  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>PC 数据集透光率/重量 RMSE 较最强基线降 36.3% / 22.1%；PMMA 一致提升。</span><span data-en>On PC, transmittance/weight RMSE down 36.3% / 22.1% vs. the best baseline; consistent gains on PMMA.</span></li><li><span data-zh>推荐参数在物理优化实验中产出接近目标的质量。</span><span data-en>Recommended parameters yield near-target quality in physical optimization experiments.</span></li><li><span data-zh>一作 SCI（AEI，IF 9.9，审稿中）+ 国家发明专利（已受理）。</span><span data-en>First-author SCI (AEI, IF 9.9, under review) + national patent (accepted).</span></li></ul></section>
-  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/b02-fw.jpg" target="_blank"><img src="img/b02-fw.jpg" alt=""></a><figcaption><span data-zh>CSPM-Net 网络架构图（编解码 + 注意力）</span><span data-en>CSPM-Net architecture (encoder–decoder + attention)</span></figcaption></figure><figure><a href="img/b02-res.jpg" target="_blank"><img src="img/b02-res.jpg" alt=""></a><figcaption><span data-zh>多方法预测误差对比（MAE/RMSE）</span><span data-en>Prediction-error comparison vs. methods (MAE/RMSE)</span></figcaption></figure><figure><a href="img/b02-scatter.jpg" target="_blank"><img src="img/b02-scatter.jpg" alt=""></a><figcaption><span data-zh>预测值 vs 实测值</span><span data-en>Predicted vs. actual</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人角色：第一作者，主导方法设计、软件实现与实验；代码已开源（GitHub: JamaicaBoy/cspm-net）。</span><span data-en>My role: first author, leading the method, implementation and experiments; open-sourced (GitHub: JamaicaBoy/cspm-net).</span></p></section>
+
+  <section class="dsec">
+    <h2><span data-zh>背景</span><span data-en>Background</span></h2>
+    <p><span data-zh>多相批次制造中质检存在大时延、无法实时反馈；开机前缺当前周期传感器数据，只能依靠历史数据提前预测质量。</span><span data-en>In multiphase batch manufacturing, inspection lags with no real-time feedback; before startup there is no current-cycle sensor data, so prediction must rely on history.</span></p>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>方法 / 我的工作</span><span data-en>Method / My Work</span></h2>
+    <ul>
+      <li><span data-zh><b>过程记忆库：</b>把历史批次的传感器时序知识压缩为"可被参数查询"的记忆表示，新批次用参数作为查询键检索相似历史经验。</span><span data-en><b>Process memory bank:</b> compress historical sensor time-series into a parameter-queryable memory; a new batch uses its parameters as the query key to retrieve similar past experience.</span></li>
+      <li><span data-zh><b>阶段分割：</b>用一致性断点方法把过程按工艺阶段切分（分割精度 &gt;99%），区分各阶段模式。</span><span data-en><b>Stage segmentation:</b> a consistency-breakpoint method splits the process by phase (>99% accuracy) to separate per-stage patterns.</span></li>
+      <li><span data-zh><b>注意力机制：</b>用时序注意力定位关键时间步、用跨模态交叉注意力把"参数模态"与"传感器记忆模态"对齐，实现仅凭参数的开机前预测。</span><span data-en><b>Attention:</b> temporal attention locates key time steps and cross-modal cross-attention aligns the "parameter" and "sensor-memory" modalities for parameter-only pre-cycle prediction.</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>结果与亮点</span><span data-en>Results & Highlights</span></h2>
+    <ul>
+      <li><span data-zh>PC 数据集透光率/重量 RMSE 较最强基线降 36.3% / 22.1%；PMMA 一致提升。</span><span data-en>On PC, transmittance/weight RMSE down 36.3% / 22.1% vs. the best baseline; consistent gains on PMMA.</span></li>
+      <li><span data-zh>推荐参数经 NSGA-II 多目标寻优后，在物理实验中产出接近目标的质量。</span><span data-en>After NSGA-II multi-objective search, recommended parameters yield near-target quality in physical experiments.</span></li>
+      <li><span data-zh>一作 SCI（AEI，IF 9.9，审稿中）+ 国家发明专利（已受理）。</span><span data-en>First-author SCI (AEI, IF 9.9, under review) + national patent (accepted).</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>方法框架与实验结果</span><span data-en>Framework & Experimental Results</span></h2>
+    <div class="gallery">
+      <figure><a href="img/b02-fw.jpg" target="_blank"><img src="img/b02-fw.jpg" alt=""></a><figcaption><span data-zh>CSPM-Net 网络架构：编解码 + 注意力（Fig.1）</span><span data-en>CSPM-Net architecture: encoder–decoder + attention (Fig.1)</span></figcaption></figure>
+      <figure><a href="img/b02-res-acc.jpg" target="_blank"><img src="img/b02-res-acc.jpg" alt=""></a><figcaption><span data-zh>与传感器型深度学习方法的精度对比（Fig.5）</span><span data-en>Accuracy vs. sensor-based deep-learning methods (Fig.5)</span></figcaption></figure>
+      <figure><a href="img/b02-res-error.jpg" target="_blank"><img src="img/b02-res-error.jpg" alt=""></a><figcaption><span data-zh>与"仅用参数"方法的预测误差对比（Fig.6）</span><span data-en>Prediction-error vs. parameter-only methods (Fig.6)</span></figcaption></figure>
+      <figure><a href="img/b02-res-target.jpg" target="_blank"><img src="img/b02-res-target.jpg" alt=""></a><figcaption><span data-zh>目标 / 预测 / 实测质量对比（Fig.13）</span><span data-en>Target / predicted / measured comparison (Fig.13)</span></figcaption></figure>
+      <figure><a href="img/b02-res-nsga.jpg" target="_blank"><img src="img/b02-res-nsga.jpg" alt=""></a><figcaption><span data-zh>NSGA-II 面向三个质量目标的优化轨迹（Fig.12）</span><span data-en>NSGA-II optimization toward three quality targets (Fig.12)</span></figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:12px"><span data-zh>本人角色：第一作者，主导方法设计、软件实现与实验；代码已开源（GitHub: JamaicaBoy/cspm-net）。</span><span data-en>My role: first author, leading the method, implementation and experiments; open-sourced (GitHub: JamaicaBoy/cspm-net).</span></p>
+  </section>
+
   <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
 </main>
 <script>

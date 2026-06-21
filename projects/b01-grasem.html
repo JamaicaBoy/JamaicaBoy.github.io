@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>少样本多目标工艺参数优化框架 GraSEM | 姚涵非 Hanfei Yao</title>
+<title>少样本多目标工艺优化框架 GraSEM | 姚涵非 Hanfei Yao</title>
 <link rel="stylesheet" href="detail.css">
 </head>
 <body>
@@ -15,13 +15,52 @@
 <main class="dwrap">
   <div class="dhero">
     <h1><span data-zh>少样本多目标工艺参数优化框架 GraSEM</span><span data-en>Few-shot Multi-objective Process Optimization (GraSEM)</span></h1>
-    <div class="dmeta"><span class="chip k"><span data-zh>第一作者 · 本人主导</span><span data-en>First author · led by me</span></span><span class="chip"><span data-zh>一作 SCI · IJAMT (IF 3.1) 返修中</span><span data-en>First-author SCI · IJAMT (IF 3.1), in revision</span></span><span class="chip"><span data-zh>中文核心 · 学生排一</span><span data-en>CSCD-core · first student author</span></span><span class="chip"><span data-zh>国家发明专利 · 实质审查中</span><span data-en>National patent · under examination</span></span><span class="chip"><span data-zh>产线落地</span><span data-en>Deployed on line</span></span></div>
-    <p class="dlede"><span data-zh>针对超精密制造（光学镜片等）中“参数-质量关系难建模、多目标冲突、收敛慢且不稳”的痛点，提出无模型多目标工艺优化框架 GraSEM：用 Taylor-QR 梯度求解器从病态历史数据中精确重构不可观测梯度，用分阶段动量调节器自适应调步长，用解耦冲突解决器动态分配多目标权重；仿真中 7–9 次迭代稳定收敛、扰动后 1–2 步恢复、稳态误差较贝叶斯优化降 90%+，并在超精密光学镜片注塑产线上较 ADAM 综合质量评分提升 33%+。</span><span data-en>For precision manufacturing (e.g., optical lenses) plagued by hard-to-model parameter–quality relations, conflicting objectives, and slow/unstable convergence, GraSEM is a model-free multi-objective framework: a Taylor-QR gradient solver reconstructs unobservable gradients from ill-conditioned historical data, a staged momentum regulator adapts the step size, and a decoupled conflict resolver dynamically weights objectives; in simulation it converges stably in 7–9 iterations, recovers in 1–2 steps after disturbances, lowers steady-state error 90%+ vs. Bayesian optimization, and improves overall quality score 33%+ over ADAM on a real ultra-precision lens-molding line.</span></p>
+    <div class="dmeta">
+      <span class="chip k"><span data-zh>第一作者 · 本人主导</span><span data-en>First author · led by me</span></span>
+      <span class="chip"><span data-zh>一作 SCI · IJAMT (IF 3.1) 返修中</span><span data-en>First-author SCI · IJAMT (IF 3.1), in revision</span></span>
+      <span class="chip"><span data-zh>中文核心 · 学生排一</span><span data-en>CSCD-core · first student author</span></span>
+      <span class="chip"><span data-zh>国家发明专利 · 实质审查中</span><span data-en>National patent · under examination</span></span>
+      <span class="chip"><span data-zh>产线落地</span><span data-en>Deployed on line</span></span>
+    </div>
+    <p class="dlede"><span data-zh>针对超精密制造（光学镜片等）中"参数-质量关系难建模、多目标冲突、收敛慢且不稳"的痛点，提出无模型多目标优化框架 GraSEM。它的<b>少样本</b>特性体现在两方面：只需<b>少量历史批次数据</b>、且只用<b>很少几次实机试验</b>即可优化——用 Taylor-QR 梯度求解器从病态历史数据中重构不可观测梯度，用分阶段动量调节器自适应调步长，用解耦冲突解决器动态分配多目标权重；仿真中 7–9 次迭代稳定收敛、扰动后 1–2 步恢复、稳态误差较贝叶斯优化降 90%+，并在超精密光学镜片注塑产线上较 ADAM 综合质量评分提升 33%+。</span><span data-en>For precision manufacturing (optical lenses) plagued by hard-to-model parameter–quality relations, conflicting objectives and slow/unstable convergence, GraSEM is a model-free multi-objective framework. Its <b>few-shot</b> nature is twofold: it needs only <b>a little historical batch data</b> and only <b>a few on-machine trials</b>. A Taylor-QR gradient solver reconstructs unobservable gradients from ill-conditioned historical data, a staged momentum regulator adapts the step size, and a decoupled conflict resolver weights objectives; in simulation it converges in 7–9 iterations, recovers in 1–2 steps after disturbances, lowers steady-state error 90%+ vs. Bayesian optimization, and improves overall quality score 33%+ over ADAM on a real lens-molding line.</span></p>
   </div>
-  <section class="dsec"><h2><span data-zh>背景</span><span data-en>Background</span></h2><p><span data-zh>精密制造中最终质量由几十个强耦合参数决定：参数-质量映射难建立、多指标相互冲突、参数范围广且质量高度敏感（要求初期快收敛、末期稳收敛）。传统田口法、基于模型法与贝叶斯优化各有局限。</span><span data-en>Final quality depends on dozens of coupled parameters: the mapping is hard to model, objectives conflict, and quality is highly sensitive over a wide range (needing fast early and stable late convergence). Taguchi, model-based and Bayesian methods each fall short.</span></p></section>
-  <section class="dsec"><h2><span data-zh>方法 / 我的工作</span><span data-en>Method / My Work</span></h2><ul><li><span data-zh>GraSEM 框架：三个协同模块解决梯度重构、收敛调节、多目标冲突。</span><span data-en>GraSEM: three cooperating modules solve gradient reconstruction, convergence regulation and objective conflict.</span></li><li><span data-zh>Taylor-QR 梯度求解器：二阶泰勒展开建线性方程；高维先 PCA 降维选近邻、带列主元 QR 分解筛样本、岭回归正则化，从病态共线历史数据重构不可观测物理梯度。</span><span data-en>Taylor-QR solver: second-order Taylor expansion → linear system; for high dimensions, PCA + nearest-neighbor selection, column-pivoted QR to pick samples, and ridge regression to reconstruct unobservable gradients from ill-conditioned data.</span></li><li><span data-zh>分阶段动量调节器：按误差阶段（高/中/低），用 IQR 剔异常做归一化，借鉴 ADAM 动态调一/二阶动量实现平稳收敛。</span><span data-en>Staged momentum regulator: by error stage (high/mid/low), IQR-based outlier removal and normalization, ADAM-style first/second-moment tuning for smooth convergence.</span></li><li><span data-zh>解耦冲突解决器：用梯度余弦相似度量化多目标冲突，凸组合求最短改进路径动态分配权重。</span><span data-en>Decoupled conflict resolver: cosine similarity quantifies conflict; a convex combination finds the shortest improving path and weights objectives.</span></li></ul></section>
-  <section class="dsec"><h2><span data-zh>结果</span><span data-en>Results</span></h2><ul><li><span data-zh>仿真 7–9 次迭代稳定收敛，扰动后 1–2 步恢复，稳态误差较贝叶斯优化降 90%+。</span><span data-en>Stable convergence in 7–9 iterations, 1–2-step recovery, 90%+ lower steady-state error vs. Bayesian.</span></li><li><span data-zh>在富强鑫透镜、舜宇成型机真实产线落地，较 ADAM 综合质量评分提升 33%+。</span><span data-en>Deployed on real lines (FCS lens, Sunny molding machine), 33%+ higher quality score than ADAM.</span></li><li><span data-zh>一作英文论文（IJAMT，返修中）+ 中文核心（学生排一）+ 国家发明专利（实质审查中）。</span><span data-en>First-author paper (IJAMT, in revision) + CSCD-core (first student author) + national patent (under examination).</span></li></ul></section>
-  <section class="dsec"><h2><span data-zh>图片</span><span data-en>Figures</span></h2><div class="gallery"><figure><a href="img/b01-fw.jpg" target="_blank"><img src="img/b01-fw.jpg" alt=""></a><figcaption><span data-zh>GraSEM 总体框架图（三模块协同）</span><span data-en>GraSEM overall framework (three modules)</span></figcaption></figure><figure><a href="img/b01-res.jpg" target="_blank"><img src="img/b01-res.jpg" alt=""></a><figcaption><span data-zh>与多种方法的综合质量评分对比</span><span data-en>Overall quality-score comparison vs. methods</span></figcaption></figure><figure><a href="img/b01-line.jpg" target="_blank"><img src="img/b01-line.jpg" alt=""></a><figcaption><span data-zh>超精密光学镜片注塑产线实拍</span><span data-en>Ultra-precision lens-molding line</span></figcaption></figure></div><p class="note" style="margin-top:12px"><span data-zh>本人角色：第一作者，独立完成方法设计、软件实现、仿真与实机实验、论文撰写；代码已开源（GitHub: JamaicaBoy/model-free-parameter-optimization）。</span><span data-en>My role: first author—method design, implementation, simulation and on-machine experiments, and writing; open-sourced (GitHub: JamaicaBoy/model-free-parameter-optimization).</span></p></section>
+
+  <section class="dsec">
+    <h2><span data-zh>背景</span><span data-en>Background</span></h2>
+    <p><span data-zh>精密制造中最终质量由几十个强耦合参数决定：参数-质量映射难建立、多指标相互冲突、参数范围广且质量高度敏感（要求初期快收敛、末期稳收敛）。传统田口法、基于模型法（代理模型需大量数据）与贝叶斯优化（迭代次数多）在精密制造中都不经济，因此需要一种<b>直接利用少量历史批次数据、无需显式模型</b>的高效方法。</span><span data-en>Final quality depends on dozens of coupled parameters: the mapping is hard to model, objectives conflict, and quality is highly sensitive over a wide range (needing fast early and stable late convergence). Taguchi, model-based (data-hungry surrogates) and Bayesian (many iterations) methods are all uneconomical here—so a method that <b>uses only a little historical data with no explicit model</b> is needed.</span></p>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>方法 / 我的工作</span><span data-en>Method / My Work</span></h2>
+    <ul>
+      <li><span data-zh><b>Taylor-QR 梯度求解器：</b>二阶泰勒展开把"参数微小变化↔质量变化"整理为线性方程；高维先 PCA 降维选近邻、用<b>带列主元 QR 分解</b>筛选最线性独立的少量样本、再用<b>岭回归正则化</b>求解，从病态共线的历史数据中重构不可观测的物理梯度——这正是它<b>少样本</b>的关键。</span><span data-en><b>Taylor-QR gradient solver:</b> a second-order Taylor expansion turns "small parameter change ↔ quality change" into a linear system; in high dimensions, PCA + nearest neighbors, <b>column-pivoted QR</b> to pick the few most independent samples, and <b>ridge regression</b> reconstruct the unobservable physical gradient from ill-conditioned data—the key to its few-shot property.</span></li>
+      <li><span data-zh><b>分阶段动量调节器：</b>按质量反馈的误差阶段（高/中/低），借鉴 ADAM 的一/二阶动量思想动态自适应调整步长，兼顾快速与平稳收敛。</span><span data-en><b>Staged momentum regulator:</b> by error stage (high/mid/low), ADAM-style first/second-moment tuning adapts the step size for both fast and stable convergence.</span></li>
+      <li><span data-zh><b>解耦冲突解决器：</b>用梯度余弦相似度量化多目标方向冲突，在梯度凸组合空间求"所有指标同步改善且效率最高"的最短路径，动态分配权重。</span><span data-en><b>Decoupled conflict resolver:</b> cosine similarity quantifies inter-objective conflict; a convex combination of gradients finds the shortest path improving all objectives, weighting them dynamically.</span></li>
+      <li><span data-zh><b>仿真 + 实机验证：</b>仿真做敏感性与消融；在富强鑫透镜、舜宇成型机真实产线落地，与试模人员协同选取注射/保压压力、料筒温度等真实参数完成实机优化闭环。</span><span data-en><b>Simulation + on-machine:</b> sensitivity and ablation in simulation; deployed on real lines (FCS lens, Sunny machine), co-selecting real parameters (injection/holding pressure, barrel temperature) with operators.</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>结果与亮点</span><span data-en>Results & Highlights</span></h2>
+    <ul>
+      <li><span data-zh><b>少样本高效：</b>仅凭少量历史数据，仿真 7–9 次迭代即稳定收敛，扰动后 1–2 步恢复。</span><span data-en><b>Few-shot & efficient:</b> with only a little historical data, stable convergence in 7–9 iterations and 1–2-step recovery after disturbances.</span></li>
+      <li><span data-zh>稳态误差较贝叶斯优化降 90%+；产线较 ADAM 综合质量评分提升 33%+。</span><span data-en>90%+ lower steady-state error vs. Bayesian; 33%+ higher quality score than ADAM on the line.</span></li>
+      <li><span data-zh>一作英文论文（IJAMT，返修中）+ 中文核心（学生排一）+ 国家发明专利（实质审查中）。</span><span data-en>First-author paper (IJAMT, in revision) + CSCD-core (first student author) + national patent (under examination).</span></li>
+    </ul>
+  </section>
+
+  <section class="dsec">
+    <h2><span data-zh>方法框架与实验结果</span><span data-en>Framework & Experimental Results</span></h2>
+    <div class="gallery">
+      <figure><a href="img/b01-fw.jpg" target="_blank"><img src="img/b01-fw.jpg" alt=""></a><figcaption><span data-zh>GraSEM 总体框架图（Fig.1：梯度估计 + 分阶段动量 + 解耦冲突解决）</span><span data-en>GraSEM framework (Fig.1: gradient estimation + staged momentum + conflict resolver)</span></figcaption></figure>
+      <figure><a href="img/b01-res-conv.jpg" target="_blank"><img src="img/b01-res-conv.jpg" alt=""></a><figcaption><span data-zh>从 3 个不同初始参数出发的优化收敛轨迹（Fig.9）</span><span data-en>Convergence from 3 different starting parameter sets (Fig.9)</span></figcaption></figure>
+      <figure><a href="img/b01-res-perturb.jpg" target="_blank"><img src="img/b01-res-perturb.jpg" alt=""></a><figcaption><span data-zh>受外部扰动后的快速恢复对比（Fig.10）</span><span data-en>Fast recovery under external perturbation (Fig.10)</span></figcaption></figure>
+      <figure><a href="img/b01-res-methods.jpg" target="_blank"><img src="img/b01-res-methods.jpg" alt=""></a><figcaption><span data-zh>与不同参数更新方法的对比：综合 / 收敛 / 稳定性评分（Fig.13）</span><span data-en>Comparison vs. parameter-update methods: overall / convergence / stability (Fig.13)</span></figcaption></figure>
+      <figure><a href="img/b01-res-4obj.jpg" target="_blank"><img src="img/b01-res-4obj.jpg" alt=""></a><figcaption><span data-zh>真实注塑机上的四目标优化收敛过程（Fig.14）</span><span data-en>Four-objective optimization on a real molding machine (Fig.14)</span></figcaption></figure>
+    </div>
+    <p class="note" style="margin-top:12px"><span data-zh>本人角色：第一作者，独立完成方法设计、软件实现、仿真与实机实验、论文撰写；代码已开源（GitHub: JamaicaBoy/model-free-parameter-optimization）。</span><span data-en>My role: first author—method, implementation, simulation and on-machine experiments, writing; open-sourced (GitHub: JamaicaBoy/model-free-parameter-optimization).</span></p>
+  </section>
+
   <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
 </main>
 <script>
