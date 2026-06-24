@@ -219,12 +219,14 @@
     <div class="sec-head"><h2><span data-zh>科研经历</span><span data-en>Research Experience</span></h2></div>
 
     <div class="proj">
-      <div class="when">2024.06 – <span data-zh>至今</span><span data-en>Present</span> · <span data-zh>代表性工作</span><span data-en>flagship project</span></div>
+      <div class="when">2025.09 – <span data-zh>至今</span><span data-en>Present</span> · <span data-zh>代表性工作</span><span data-en>flagship project</span></div>
       <h3><span data-zh>生产前产品质量智能预测</span><span data-en>Pre-production Product Quality Prediction</span></h3>
       <ul>
-        <li><span data-zh>解决的问题：在一批产品正式生产之前，仅凭设定好的工艺参数就提前预测成品质量是否达标，帮助工厂在开机前筛掉有风险的参数，减少废品和反复试模。</span><span data-en>The problem: before a batch goes into production, predict whether the product will meet quality targets using only the planned process settings—so the factory can screen out risky parameters before startup, cutting scrap and repeated trial molding.</span></li>
-        <li><span data-zh>原理：把历史批次的传感器数据压缩成一个"可被参数检索的过程记忆库"，先按工艺阶段做<b>阶段分割</b>，再用<b>时序注意力 + 跨模态交叉注意力机制</b>，让当前参数自动对齐最相关的历史经验，从而仅凭参数就给出可靠的开机前质量预测。</span><span data-en>How it works: historical sensor data is compressed into a "parameter-queryable process memory"; the process is split by <b>stage segmentation</b>, then <b>temporal + cross-modal cross-attention</b> aligns the current parameters with the most relevant past experience, giving a reliable pre-cycle prediction from parameters alone.</span></li>
-        <li><span data-zh>效果：在真实生产数据上验证，质量预测误差比现有最好的方法最多降低 36%，更换材料后依然适用——这是我目前最有代表性的工作。</span><span data-en>The result: on real production data, prediction error is up to 36% lower than the best existing method and still holds when switching materials—my most representative work to date.</span></li>
+        <li><span data-zh>面向注塑等多阶段批次制造场景，研究在生产开始前、当前周期传感器数据尚未产生时，如何仅凭设定工艺参数提前预测关键质量指标，用于开机前风险筛查、减少试模和辅助参数优化。</span><span data-en>For injection molding and other multiphase batch manufacturing scenarios, this work studies how to predict key quality indicators before production starts, when current-cycle sensor data have not yet been generated, using only preset process parameters for pre-startup risk screening, trial reduction, and parameter optimization support.</span></li>
+        <li><span data-zh>构建可由参数检索的历史过程记忆库：先用无监督方法把历史时序数据划分为物理意义明确的工艺阶段，再提取阶段内各传感器特征，并通过交叉注意力让工艺参数对齐相关传感器响应。</span><span data-en>A parameter-queryable historical process memory bank is built by first using an unsupervised method to divide historical time-series data into physically meaningful process stages, then extracting sensor features within each stage and using cross-attention to align process parameters with relevant sensor responses.</span></li>
+        <li><span data-zh>进一步通过时序注意力筛选对质量更关键的阶段，将多阶段特征聚合为质量敏感记忆表示；预测新参数时仅输入当前参数，检索相似历史周期并输出质量预测。</span><span data-en>Temporal attention further selects stages that are more critical to quality and aggregates multi-stage features into quality-sensitive memory representations; when predicting a new parameter setting, only the current parameters are input to retrieve similar historical cycles and output the quality prediction.</span></li>
+        <li><span data-zh>在真实制造数据集上完成验证，代表性质量指标 RMSE 相对最强基线降低 36%，并验证跨材料适用性。</span><span data-en>The method was validated on real manufacturing datasets, reducing the RMSE of representative quality indicators by 36% relative to the strongest baseline and verifying cross-material applicability.</span></li>
+        <li><span data-zh>相关内容以一作投稿 SCI 论文 1 篇（AEI，IF 9.9，审稿中），受理国家发明专利 1 项（导师 1，本人 2）。</span><span data-en>Related work includes one first-author SCI submission to AEI (IF 9.9, under review) and one accepted national invention patent (advisor first, myself second).</span></li>
       </ul>
       <div class="badges">
         <span class="badge first"><span data-zh>一作 SCI · AEI (IF 9.9) 审稿中</span><span data-en>First-author SCI · AEI (IF 9.9), under review</span></span>
@@ -238,13 +240,15 @@
       <div class="when">2024.12 – <span data-zh>至今</span><span data-en>Present</span></div>
       <h3><span data-zh>少样本工艺参数智能优化</span><span data-en>Few-shot Process Parameter Optimization</span></h3>
       <ul>
-        <li><span data-zh>解决的问题：高端制造里工艺参数多、试验贵，多个质量指标还常常互相冲突，靠人工试模又慢又不稳定。</span><span data-en>The problem: in high-end manufacturing there are many parameters, experiments are expensive, quality targets often conflict, and manual trial molding is slow and unstable.</span></li>
-        <li><span data-zh>原理（少样本）：只需<b>少量历史批次数据 + 很少几次试验</b>，用二阶泰勒展开把"参数变化↔质量变化"化为方程，再用 <b>QR 分解 + 岭回归</b>从少量病态数据中<b>估计梯度</b>，配合<b>自适应动量</b>调步长、并用余弦相似度<b>解耦多目标冲突</b>，无需物理模型即可又快又稳地寻优。</span><span data-en>How it works (few-shot): with only <b>a little historical data and very few trials</b>, a second-order Taylor expansion turns "parameter change ↔ quality change" into equations; <b>QR decomposition + ridge regression</b> <b>estimate the gradient</b> from scarce ill-conditioned data, an <b>adaptive momentum</b> tunes the step, and cosine similarity <b>decouples multi-objective conflicts</b>—optimizing fast and stably without a physics model.</span></li>
-        <li><span data-zh>效果：在仿真和真实注塑机上验证，通常 7–9 次调整就能稳定达到目标，受到突发干扰后 1–2 次即可恢复，整体效果比常用方法提升 33% 以上。</span><span data-en>The result: validated in simulation and on real molding machines—usually reaches the target within 7–9 adjustments, recovers in 1–2 steps after a disturbance, and improves overall quality by 33%+ over common methods.</span></li>
+        <li><span data-zh>针对高端制造中参数数量多、质量指标相互制约、实验成本高的问题，研究不依赖完整机理模型和大规模训练样本的迭代式参数优化方法。</span><span data-en>For high-end manufacturing scenarios with many parameters, mutually constrained quality indicators, and high experimental costs, this work studies an iterative parameter optimization method that does not rely on complete mechanism models or large-scale training samples.</span></li>
+        <li><span data-zh>基于少量初始扰动实验和历史批次数据，在当前参数附近构建局部二阶近似；通过样本加权筛选、泰勒展开和正则化求解，估计质量梯度与主要曲率，用于判断调参方向和敏感程度。</span><span data-en>Based on a small number of initial perturbation experiments and historical batch data, a local second-order approximation is constructed around the current parameters; sample-weighted screening, Taylor expansion, and regularized solving are used to estimate quality gradients and main curvatures for judging tuning directions and sensitivities.</span></li>
+        <li><span data-zh>受 ADAM 优化器自适应动量思想启发，结合梯度可靠性、曲率和质量误差阶段动态调整步长与动量；通过误差权重和方向冲突处理，将多目标更新拆分为方向选择和幅度控制，提高优化速度与收敛稳定性。</span><span data-en>Inspired by the adaptive momentum idea of the ADAM optimizer, step size and momentum are dynamically adjusted according to gradient reliability, curvature, and quality-error stages; error weighting and direction-conflict handling split multi-objective updates into direction selection and magnitude control, improving optimization speed and convergence stability.</span></li>
+        <li><span data-zh>在仿真平台和生产设备实验中完成验证，方法可在 7-9 次参数调整内稳定达到目标，受到过程扰动后 1-2 次调整恢复；物理实验中整体质量评分相对常用梯度优化方法提升 33%+。</span><span data-en>The method was validated on simulation platforms and production equipment, reaching the target stably within 7-9 parameter adjustments and recovering within 1-2 adjustments after process disturbances; in physical experiments, the overall quality score improved by 33%+ compared with common gradient optimization methods.</span></li>
+        <li><span data-zh>相关内容以一作投稿 SCI 论文 1 篇（IJAMT，IF 3.1，返修中）、以学生排一发表中文核心论文 1 篇（《精密成形工程》），国家发明专利 1 项实质审查中（导师 1，本人 2）。</span><span data-en>Related work includes one first-author SCI submission to IJAMT (IF 3.1, in revision), one Chinese core journal paper published as first student author in Journal of Netshape Forming Engineering, and one national invention patent under substantive examination (advisor first, myself second).</span></li>
       </ul>
       <div class="badges">
         <span class="badge first"><span data-zh>一作 SCI · IJAMT (IF 3.1) 返修中</span><span data-en>First-author SCI · IJAMT (IF 3.1), in revision</span></span>
-        <span class="badge core"><span data-zh>中文核心《精密成形工程》· 学生排一</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · first student author</span></span>
+        <span class="badge core"><span data-zh>中文核心《精密成形工程》· 学生排一 · 已发表</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · first student author · published</span></span>
         <span class="badge"><span data-zh>国家发明专利 · 实质审查中</span><span data-en>National patent · under examination</span></span>
         <span class="badge git"><a href="https://github.com/JamaicaBoy/model-free-parameter-optimization" target="_blank" rel="noopener">⎇ JamaicaBoy/model-free-parameter-optimization</a></span>
       </div>
@@ -255,12 +259,13 @@
       <div class="when">2025.10 – 2026.05</div>
       <h3><span data-zh>大模型辅助的工艺参数推荐</span><span data-en>LLM-assisted Parameter Recommendation</span></h3>
       <ul>
-        <li><span data-zh>解决的问题：注塑成型调参高度依赖老师傅经验，新人上手慢、试错成本高。</span><span data-en>The problem: injection-molding tuning relies heavily on veteran experience—newcomers ramp up slowly and trial-and-error is costly.</span></li>
-        <li><span data-zh>原理：把 819 篇中英文文献用<b>嵌入模型</b>编码成<b>向量知识库</b>，本地大模型按当前与目标质量的差距做<b>检索增强生成（RAG）</b>，像有经验的工艺工程师一样给出调参建议并附推理依据。</span><span data-en>How it works: 819 papers are encoded by an <b>embedding model</b> into a <b>vector knowledge base</b>; based on the gap to target, a local LLM performs <b>retrieval-augmented generation (RAG)</b>, giving parameter advice with reasoning like an experienced engineer.</span></li>
-        <li><span data-zh>效果：在多种材料的仿真任务里，基本 3 轮内就能调到目标质量范围。</span><span data-en>The result: across multi-material simulation tasks, it reaches the target quality range within about 3 rounds.</span></li>
+        <li><span data-zh>参与构建面向制造工艺调参的知识库增强大模型流程，整理 819 篇中英文工艺文献，通过 Zotero、AnythingLLM 和 Ollama 形成本地可检索知识库与参数推荐流程。</span><span data-en>Contributed to a knowledge-base-enhanced LLM workflow for manufacturing process tuning, organizing 819 Chinese and English process papers and building a local searchable knowledge base and parameter recommendation workflow with Zotero, AnythingLLM, and Ollama.</span></li>
+        <li><span data-zh>系统根据当前质量与目标值偏差检索材料特性、成形机理和典型调参经验，生成参数调整建议及推理依据；在多材料仿真优化任务中均可 3 轮内收敛至目标质量范围。</span><span data-en>The system retrieves material properties, forming mechanisms, and typical tuning experience based on the deviation between current and target quality, then generates parameter adjustment suggestions with reasoning; in multi-material simulation optimization tasks, it converges to the target quality range within 3 rounds.</span></li>
+        <li><span data-zh>相关内容以学生排一发表中文核心论文 1 篇（《精密成形工程》），国家发明专利 1 项实质审查中（学生排一）。</span><span data-en>Related work includes one Chinese core journal paper published as first student author in Journal of Netshape Forming Engineering and one national invention patent under substantive examination as first student contributor.</span></li>
       </ul>
       <div class="badges">
         <span class="badge core"><span data-zh>中文核心《精密成形工程》· 学生排一 · 已发表</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · first student author · published</span></span>
+        <span class="badge"><span data-zh>国家发明专利 · 实质审查中</span><span data-en>National patent · under examination</span></span>
         <span class="badge"><span data-zh>RAG · 本地大模型</span><span data-en>RAG · local LLM</span></span>
       </div>
       <a class="mini-more" href="projects/b03-rag.html" style="margin-top:10px"><span data-zh>查看项目详情 →</span><span data-en>View details →</span></a>
@@ -443,7 +448,7 @@
       </li>
       <li>
         <span class="when">2023.09 – 2024.01</span>
-        <span class="org"><span data-zh>机械设计制造课程助教 · 指导 3D 打印 / 机加工 / 注塑实验并批改作业</span><span data-en>Mechanical Design & Manufacturing TA — guided 3D-printing / machining / molding labs, graded assignments</span></span>
+        <span class="org"><span data-zh>机械设计制造课程助教</span><span data-en>Mechanical Design & Manufacturing TA</span></span>
         <span class="role"><span data-zh>课程助教</span><span data-en>Teaching Assistant</span></span>
       </li>
       <li>
