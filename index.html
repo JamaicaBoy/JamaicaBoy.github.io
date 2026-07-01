@@ -30,8 +30,8 @@
   main{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
   .hero{padding:58px 0 38px;display:flex;gap:36px;align-items:center;flex-wrap:wrap}
-  .hero-photo-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
-  .zju-logo{width:60px;height:60px;object-fit:contain}
+  .hero-photo-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;flex-shrink:0}
+  .zju-logo{width:150px;height:150px;object-fit:contain}
   .hero-photo{width:150px;height:195px;border-radius:14px;flex-shrink:0;box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line);background:#dfe5ee}
   .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
   .hero-text{flex:1;min-width:280px}
@@ -225,7 +225,7 @@
 
     <div class="proj">
       <div class="when">2025.09 – <span data-zh>至今</span><span data-en>Present</span> · <span data-zh>代表性工作</span><span data-en>flagship project</span></div>
-      <h3><span data-zh>生产前产品质量智能预测</span><span data-en>Pre-production Product Quality Prediction</span></h3>
+      <h3><span data-zh>生产前产品质量智能预测（GitHub：github.com/JamaicaBoy/cspm-net）</span><span data-en>Pre-production Product Quality Prediction (GitHub: github.com/JamaicaBoy/cspm-net)</span></h3>
       <ul>
         <li><span data-zh>面向注塑等多阶段批次制造场景，研究在生产开始前、当前周期传感器数据尚未产生时，如何仅凭设定工艺参数提前预测关键质量指标，用于开机前风险筛查、减少试模和辅助参数优化。</span><span data-en>For injection molding and other multi-stage batch manufacturing scenarios, this work studies how to predict key quality indicators before production starts — when current-cycle sensor data have not yet been generated — using only the preset process parameters, for pre-startup risk screening, reduced trial molding, and parameter-optimization support.</span></li>
         <li><span data-zh>基于 PC/PMMA 两种真实注塑材料数据完成验证，每种材料采集 300 个成型周期，包含 6 类过程传感器、5 类工艺参数及透光率/重量双质量指标。</span><span data-en>Validated on real injection-molding data from two materials, PC and PMMA, with 300 molding cycles collected per material covering 6 categories of process sensors, 5 categories of process parameters, and dual quality indicators of light transmittance and weight.</span></li>
@@ -244,7 +244,7 @@
 
     <div class="proj">
       <div class="when">2024.12 – <span data-zh>至今</span><span data-en>Present</span></div>
-      <h3><span data-zh>少样本多目标工艺参数优化与生产验证</span><span data-en>Few-shot Multi-objective Process Parameter Optimization & Production Validation</span></h3>
+      <h3><span data-zh>少样本多目标工艺参数优化与生产验证（GitHub：github.com/JamaicaBoy/model-free-parameter-optimization）</span><span data-en>Few-shot Multi-objective Process Parameter Optimization & Production Validation (GitHub: github.com/JamaicaBoy/model-free-parameter-optimization)</span></h3>
       <ul>
         <li><span data-zh>针对高端制造中参数数量多、质量指标相互制约、实验成本高的问题，研究不依赖完整机理模型和大规模训练样本的迭代式参数优化方法。</span><span data-en>For high-end manufacturing scenarios with many parameters, mutually constrained quality indicators, and high experimental costs, this work studies an iterative parameter-optimization method that does not rely on complete mechanism models or large-scale training samples.</span></li>
         <li><span data-zh>基于少量初始扰动实验和历史批次数据，在当前参数附近构建局部二阶近似；通过样本加权筛选、泰勒展开和正则化求解，估计质量梯度与主要曲率，用于判断调参方向和敏感程度。</span><span data-en>Based on a small number of initial perturbation experiments and historical batch data, a local second-order approximation is constructed around the current parameters; sample-weighted screening, Taylor expansion, and regularized solving are used to estimate quality gradients and main curvatures for judging tuning directions and sensitivities.</span></li>
@@ -264,7 +264,7 @@
 
     <div class="proj">
       <div class="when">2025.10 – 2026.05</div>
-      <h3><span data-zh>注塑论文知识库 RAG Agent</span><span data-en>Injection-molding Paper Knowledge-base RAG Agent</span></h3>
+      <h3><span data-zh>注塑论文知识库 RAG Agent（Demo：github.com/JamaicaBoy/injection-molding-rag-agent）</span><span data-en>Injection-molding Paper Knowledge-base RAG Agent (Demo: github.com/JamaicaBoy/injection-molding-rag-agent)</span></h3>
       <ul>
         <li><span data-zh>基于 819 篇中英文注塑工艺文献构建本地企业知识库，完成 PDF 解析、章节清洗、元数据整理、知识卡抽取和 section-aware chunk 切分，形成约 3.8 万条可检索知识片段。</span><span data-en>Built a local enterprise knowledge base from 819 Chinese and English injection-molding process papers, completing PDF parsing, section cleaning, metadata organization, knowledge-card extraction, and section-aware chunking to form about 38,000 retrievable knowledge chunks.</span></li>
         <li><span data-zh>搭建 Agentic RAG 检索问答流程，采用 BGE embedding、Chroma 向量库、BM25 + Dense 混合召回和 rerank 精排；覆盖 100 个典型问题测试，Top-3 检索命中率89%，单次问答耗时约 10–20 s。</span><span data-en>Built an Agentic RAG retrieval-QA pipeline using BGE embeddings, a Chroma vector store, BM25 + dense hybrid recall, and reranking; tested on 100 representative questions with an 89% top-3 retrieval hit rate and about 10–20 s per query.</span></li>
