@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>大模型辅助的工艺参数推荐（RAG）| 姚涵非 Hanfei Yao</title>
+<title>注塑论文知识库 RAG Agent | 姚涵非 Hanfei Yao</title>
 <link rel="stylesheet" href="detail.css">
 </head>
 <body>
@@ -14,54 +14,56 @@
 </div></header>
 <main class="dwrap">
   <div class="dhero">
-    <h1><span data-zh>大模型辅助的工艺参数推荐（知识库增强 RAG）</span><span data-en>LLM-assisted Parameter Recommendation (Knowledge-augmented RAG)</span></h1>
+    <h1><span data-zh>注塑论文知识库 RAG Agent（Agentic RAG + LangGraph）</span><span data-en>Injection-molding Paper Knowledge-base RAG Agent (Agentic RAG + LangGraph)</span></h1>
     <div class="dmeta">
-      <span class="chip k"><span data-zh>本人参与</span><span data-en>Contributor</span></span>
+      <span class="chip k"><span data-zh>学生排一 · 独立实现</span><span data-en>First student author · built independently</span></span>
       <span class="chip"><span data-zh>中文核心《精密成形工程》· 已发表</span><span data-en>CSCD-core (J. Netshape Forming Eng.) · published</span></span>
-      <span class="chip"><span data-zh>检索增强生成 (RAG)</span><span data-en>RAG</span></span>
-      <span class="chip"><span data-zh>本地大模型</span><span data-en>Local LLM</span></span>
+      <span class="chip"><span data-zh>Agentic RAG · LangGraph</span><span data-en>Agentic RAG · LangGraph</span></span>
+      <span class="chip"><span data-zh>GitHub 开源 Demo</span><span data-en>Open-source demo on GitHub</span></span>
     </div>
-    <p class="dlede"><span data-zh>针对注射成形工艺调试"依赖经验、试错成本高、周期长"的问题，构建知识库增强(RAG)的生成式大模型工艺优化框架：自动搜集 819 篇中英文文献，用<b>嵌入模型</b>切分编码成<b>向量知识库</b>；本地部署大模型按"实际与目标质量偏差"做<b>检索增强生成</b>，动态给出参数调整建议并附推理依据；在 PC、PMMA 等材料上 3 轮内精准收敛至目标质量，显著优于无知识库大模型与人工试错（需 7 轮以上）。</span><span data-en>For molding tuning that is experience-dependent, costly and slow, this builds a knowledge-augmented (RAG) generative-LLM framework: 819 papers are chunked and encoded by an <b>embedding model</b> into a <b>vector knowledge base</b>; a locally deployed LLM performs <b>retrieval-augmented generation</b> based on the gap between actual and target quality, giving parameter advice with reasoning; on PC, PMMA and more it converges within 3 rounds—far better than an LLM without the knowledge base or manual trial-and-error (7+ rounds).</span></p>
+    <p class="dlede"><span data-zh>面向注塑成型企业的 <b>RAG + Agent 论文知识库</b>应用：以 819→896 篇中英文注塑工艺论文为核心知识来源，完成 PDF 解析、章节清洗、元数据整理、知识卡抽取与 section-aware chunk 切分，构建<b>向量知识库</b>与 <b>Agentic RAG</b> 检索问答流程；支持工艺问答、缺陷诊断、工艺参数影响分析、方法对比、证据追溯和多轮对话记忆，并通过 LangChain 适配层与 <b>LangGraph</b> 显式状态图升级为可扩展的企业级 Agent Workflow。离线评测端到端任务完成率 86%，证据引用准确率 91%，无证据问题拒答率 95%；并在该知识库基础上扩展出工艺参数推荐应用，3 轮内收敛至目标质量。</span><span data-en>An <b>RAG + Agent paper knowledge-base</b> application for injection-molding manufacturers: 819→896 Chinese and English molding-process papers are parsed, cleaned, enriched with metadata, distilled into knowledge cards, and split into section-aware chunks to build a <b>vector knowledge base</b> and an <b>Agentic RAG</b> retrieval-QA pipeline. It supports process Q&A, defect diagnosis, parameter-impact analysis, method comparison, evidence tracing and multi-turn conversation memory, and has been upgraded via a LangChain adapter layer and an explicit <b>LangGraph</b> state graph into an extensible enterprise-grade Agent Workflow. Offline evaluation shows an 86% end-to-end task completion rate, 91% evidence-citation accuracy and a 95% refusal rate on evidence-free questions; a process-parameter recommendation feature built on top of this knowledge base converges to the target quality within 3 rounds.</span></p>
   </div>
 
   <section class="dsec">
     <h2><span data-zh>背景</span><span data-en>Background</span></h2>
-    <p><span data-zh>注塑调参高度依赖老师傅经验，试错成本高、周期长，新人上手慢。</span><span data-en>Molding tuning relies heavily on veteran experience—costly, slow, and hard for newcomers.</span></p>
+    <ul>
+      <li><span data-zh><b>论文知识分散，检索成本高：</b>注塑成型论文涉及材料、模具、工艺参数、缺陷机理、质量预测、优化算法、仿真建模等多个方向，仅靠人工翻 PDF 很难在短时间内找到可靠证据。</span><span data-en><b>Scattered paper knowledge, high retrieval cost:</b> molding papers span materials, molds, process parameters, defect mechanisms, quality prediction, optimization algorithms and simulation modeling — manually skimming PDFs rarely surfaces reliable evidence quickly.</span></li>
+      <li><span data-zh><b>缺陷诊断依赖经验，知识沉淀不足：</b>翘曲、缩水、熔接痕、短射、飞边、气泡、烧焦、透明件发雾等缺陷通常与熔体温度、模具温度、注射速度、保压压力、冷却时间等参数相关，但不同材料、模具结构和工况下论文结论可能存在差异，需要结合证据判断。</span><span data-en><b>Defect diagnosis relies on experience, with little knowledge retained:</b> warping, sink marks, weld lines, short shots, flash, bubbles, burning and haze on clear parts usually relate to melt temperature, mold temperature, injection speed, holding pressure and cooling time — but conclusions can differ across materials, mold structures and operating conditions, so evidence-based judgment is needed.</span></li>
+      <li><span data-zh><b>工艺参数影响关系复杂：</b>单个参数可能同时影响重量、尺寸精度、透过率、表面质量、收缩率和内部缺陷，企业需要的不只是"参数升高会怎样"，而是"在哪些论文、哪些材料、哪些质量指标下有证据"。</span><span data-en><b>Complex parameter-quality relationships:</b> a single parameter can affect weight, dimensional accuracy, transmittance, surface quality, shrinkage and internal defects at once — what's needed isn't just "what happens if this goes up" but "which papers, which materials, which indicators have evidence for it."</span></li>
+      <li><span data-zh><b>工业场景需要可追溯、可复核：</b>生产参数调整、质量放行、设备异常、安全风险等问题不能让大模型直接拍脑袋回答，系统需要提供证据来源、置信度判断和人工复核入口。</span><span data-en><b>Industrial scenarios need traceability and review:</b> production parameter changes, quality sign-off, equipment anomalies and safety risks can't be answered by an LLM off the cuff — the system must surface evidence sources, confidence, and a human-review path.</span></li>
+    </ul>
   </section>
 
   <section class="dsec">
-    <h2><span data-zh>方法</span><span data-en>Method</span></h2>
+    <h2><span data-zh>方法 / 系统架构</span><span data-en>Method / Architecture</span></h2>
     <ul>
-      <li><span data-zh><b>构建向量知识库：</b>自动搜集 819 篇中英文工艺文献 → 文档切分 → 嵌入模型编码 → 向量知识库。</span><span data-en><b>Build the vector knowledge base:</b> auto-collect 819 papers → chunking → embedding-model encoding → vector store.</span></li>
-      <li><span data-zh><b>检索增强生成：</b>本地部署大模型，按当前与目标质量的偏差检索相关知识，增强生成参数调整建议与推理依据（Zotero / AnythingLLM / Ollama）。</span><span data-en><b>Retrieval-augmented generation:</b> a local LLM retrieves relevant knowledge by the quality gap and generates parameter advice with reasoning (Zotero / AnythingLLM / Ollama).</span></li>
+      <li><span data-zh><b>知识库构建：</b>819→896 篇中英文论文 → PDF 解析（正文/标题/表格/图题/公式附近文本）→ 清洗页眉页脚与参考文献噪声 → 按论文结构做 section-aware chunk → 生成 metadata、论文卡、缺陷卡、参数卡 → embedding 写入 Chroma 向量库，同步构建 BM25 索引。</span><span data-en><b>Knowledge-base construction:</b> 819→896 papers → PDF parsing (body text, titles, tables, figure captions, formula context) → cleaning headers/footers and reference noise → section-aware chunking (not fixed-length) → metadata, paper/defect/parameter cards → embeddings into a Chroma vector store, plus a parallel BM25 index.</span></li>
+      <li><span data-zh><b>Agentic RAG 检索问答：</b>BM25（精确术语召回）+ Dense Retrieval（语义召回）+ Rerank 精排，输出带来源、相似度与 rerank 分数的 Evidence Table；设计 Query Rewrite 对口语化问题做术语归一、意图识别和中英文扩展。</span><span data-en><b>Agentic RAG retrieval-QA:</b> BM25 (exact-term recall) + dense retrieval (semantic recall) + reranking produce an Evidence Table with sources, similarity and rerank scores; Query Rewrite normalizes terminology, recognizes intent, and expands colloquial questions across Chinese/English.</span></li>
+      <li><span data-zh><b>Agent 工具链（LangGraph 状态图编排）：</b>search_papers_tool（论文证据检索）、defect_diagnosis_tool（缺陷诊断）、parameter_effect_tool（工艺参数影响分析）、method_compare_tool（论文方法对比）、evidence_extract_tool（证据表整理）、human_review_tool（人工复核）、knowledge_gap_tool（知识缺口记录）。</span><span data-en><b>Agent tool chain (orchestrated as a LangGraph state graph):</b> search_papers_tool (evidence retrieval), defect_diagnosis_tool (defect diagnosis), parameter_effect_tool (parameter-impact analysis), method_compare_tool (method comparison), evidence_extract_tool (evidence-table assembly), human_review_tool (human review), and knowledge_gap_tool (knowledge-gap logging).</span></li>
+      <li><span data-zh><b>Memory 与长对话：</b>短期对话记忆保存最近轮次与关键实体，支持"它/刚才那种缺陷"等指代消解；长对话自动压缩为结构化摘要（用户目标、关键实体、已确认结论、待解决问题、风险等级），降低上下文压力，但结论始终以当前检索证据为准。</span><span data-en><b>Memory & long-context handling:</b> short-term memory keeps recent turns and key entities to resolve references like "it" or "that defect"; long conversations are compressed into a structured summary (goal, entities, confirmed findings, open questions, risk level) to reduce context pressure, while conclusions always defer to the current retrieval evidence.</span></li>
+      <li><span data-zh><b>多 Corpus Mode 与增量索引：</b>dev（约 30 篇，开发调试）/ full（本地 896 篇，效果最完整）/ public_full_release（公开 Demo 默认，通过 GitHub Release 分发结构化产物，不含 PDF 原文，避免仓库过大）；用户上传 PDF 实时解析、chunk、embedding 后写入独立 collection，仅作增量补充，不污染主知识库。</span><span data-en><b>Multiple corpus modes & incremental indexing:</b> dev (~30 papers, for development) / full (896 papers locally, best fidelity) / public_full_release (default for the public demo, distributed as structured artifacts via GitHub Release, excluding raw PDFs to keep the repo small); user-uploaded PDFs are parsed, chunked and embedded on the fly into a separate collection as incremental supplements only.</span></li>
     </ul>
   </section>
 
   <section class="dsec">
     <h2><span data-zh>结果与亮点</span><span data-en>Results & Highlights</span></h2>
     <ul>
-      <li><span data-zh>PC、PMMA 等材料 3 轮内收敛至目标质量；无知识库大模型与人工试错（7 轮+）均不及。</span><span data-en>Converges within 3 rounds on PC/PMMA; beats the no-knowledge-base LLM and manual trial-and-error (7+ rounds).</span></li>
-      <li><span data-zh>在真实注塑机上验证：4 模内将重量误差降至 0（见下表 10）。</span><span data-en>Validated on a real molding machine: weight error reduced to 0 within 4 molds (Table 10 below).</span></li>
-      <li><span data-zh>成果发表于中文核心《精密成形工程》。</span><span data-en>Published in the CSCD-core Journal of Netshape Forming Engineering.</span></li>
+      <li><span data-zh>离线评测：端到端任务完成率 86%，证据引用准确率 91%，无证据问题拒答率 95%。</span><span data-en>Offline evaluation: 86% end-to-end task completion, 91% evidence-citation accuracy, 95% refusal rate on evidence-free questions.</span></li>
+      <li><span data-zh>覆盖翘曲、缩水、熔接痕、短射、飞边、气泡、烧焦、透明件发雾等缺陷诊断，以及熔体温度、模具温度、注射速度、保压压力、冷却时间等参数影响分析。</span><span data-en>Covers diagnosis of warping, sink marks, weld lines, short shots, flash, bubbles, burning and haze, plus impact analysis of melt temperature, mold temperature, injection speed, holding pressure and cooling time.</span></li>
+      <li><span data-zh>已通过 GitHub Release 发布 <code>full_release_no_pdf_v1</code> 数据包（不含 PDF 原文，公开可复现）。</span><span data-en>Published the <code>full_release_no_pdf_v1</code> data package via GitHub Release (no raw PDFs, publicly reproducible).</span></li>
+      <li><span data-zh>在该知识库 Agent 基础上扩展出工艺参数推荐应用：PC、PMMA 等多材料仿真优化任务均可 3 轮内收敛至目标质量范围；相关内容以学生排一发表中文核心论文 1 篇（《精密成形工程》），国家发明专利 1 项实质审查中（学生排一）。</span><span data-en>A process-parameter recommendation application built on this knowledge-base agent converges to the target quality within 3 rounds across multi-material simulation tasks (PC, PMMA, etc.); related work includes one Chinese core journal paper published as first student author (Journal of Netshape Forming Engineering) and one national invention patent under substantive examination (first student contributor).</span></li>
     </ul>
   </section>
 
   <section class="dsec">
-    <h2><span data-zh>方法框架</span><span data-en>Framework</span></h2>
+    <h2><span data-zh>系统截图（来自 GitHub Demo）</span><span data-en>Screenshots (from the GitHub Demo)</span></h2>
     <div class="gallery">
-      <figure><a href="img/b03-kb.jpg" target="_blank"><img src="img/b03-kb.jpg" alt=""></a><figcaption><span data-zh>知识库构建流程（图3）</span><span data-en>Knowledge-base construction (Fig.3)</span></figcaption></figure>
-      <figure><a href="img/b03-rag.jpg" target="_blank"><img src="img/b03-rag.jpg" alt=""></a><figcaption><span data-zh>检索增强推理流程（图1）</span><span data-en>Retrieval-augmented inference (Fig.1)</span></figcaption></figure>
+      <figure><a href="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/app_home.png" target="_blank"><img src="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/app_home.png" alt=""></a><figcaption><span data-zh>首页与聊天界面</span><span data-en>App home & chat interface</span></figcaption></figure>
+      <figure><a href="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/rag_answer_evidence_debug(1).png" target="_blank"><img src="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/rag_answer_evidence_debug(1).png" alt=""></a><figcaption><span data-zh>带证据的 RAG 回答、证据表与运行详情</span><span data-en>RAG answer with evidence table and run details</span></figcaption></figure>
+      <figure><a href="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/defect_agent.png" target="_blank"><img src="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/defect_agent.png" alt=""></a><figcaption><span data-zh>缺陷诊断 Agent：针对"缩水"问题给出可能原因、证据与人工复核状态</span><span data-en>Defect-diagnosis agent: candidate causes, evidence and human-review status for a "sink mark" question</span></figcaption></figure>
+      <figure><a href="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/public_release_sidebar.png" target="_blank"><img src="https://github.com/JamaicaBoy/injection-molding-rag-agent/raw/main/docs/assets/public_release_sidebar.png" alt=""></a><figcaption><span data-zh>侧边栏：Corpus mode、Workflow backend、文献/chunk/向量数量等运行状态</span><span data-en>Sidebar: corpus mode, workflow backend, paper/chunk/vector counts and runtime status</span></figcaption></figure>
     </div>
-  </section>
-
-  <section class="dsec">
-    <h2><span data-zh>实验结果与实物</span><span data-en>Results & Real Setup</span></h2>
-    <div class="gallery">
-      <figure><a href="img/b03-res-table.jpg" target="_blank"><img src="img/b03-res-table.jpg" alt=""></a><figcaption><span data-zh>真实注塑机上的优化结果（表10：4 模内重量误差降至 0）</span><span data-en>Optimization on a real molding machine (Table 10: weight error → 0 within 4 molds)</span></figcaption></figure>
-      <figure><a href="img/b03-machine.jpg" target="_blank"><img src="img/b03-machine.jpg" alt=""></a><figcaption><span data-zh>泰瑞 DE168 注射成形机（实物，图5）</span><span data-en>Tederic DE168 molding machine (Fig.5)</span></figcaption></figure>
-      <figure><a href="img/b03-products.jpg" target="_blank"><img src="img/b03-products.jpg" alt=""></a><figcaption><span data-zh>成形制品（图6）</span><span data-en>Molded products (Fig.6)</span></figcaption></figure>
-    </div>
-    <p class="note" style="margin-top:12px"><span data-zh>本人角色：参与该课题组合作研究，涉及本地大模型部署、知识库构建与实验等环节。</span><span data-en>My role: contributed to this collaborative lab research—local LLM deployment, knowledge-base construction and experiments.</span></p>
+    <p class="note" style="margin-top:12px"><span data-zh>本人角色：独立设计与实现知识库构建流程、Agentic RAG 检索问答、LangGraph Agent Workflow、Memory 与增量索引，并完成离线评测；代码与文档已开源（GitHub: <a href="https://github.com/JamaicaBoy/injection-molding-rag-agent" target="_blank" rel="noopener">JamaicaBoy/injection-molding-rag-agent</a>）。</span><span data-en>My role: independently designed and implemented the knowledge-base pipeline, Agentic RAG retrieval-QA, LangGraph agent workflow, memory and incremental indexing, and ran the offline evaluation; code and docs are open-sourced (GitHub: <a href="https://github.com/JamaicaBoy/injection-molding-rag-agent" target="_blank" rel="noopener">JamaicaBoy/injection-molding-rag-agent</a>).</span></p>
   </section>
 
   <div class="dfoot"><span data-zh>姚涵非 · </span><span data-en>Hanfei Yao · </span><a href="../index.html"><span data-zh>返回主页</span><span data-en>Back to home</span></a></div>
